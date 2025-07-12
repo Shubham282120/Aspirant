@@ -1,249 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <style>
-<style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.typewriter-text::after {
-    content: "|";
-    animation: blink 0.7s infinite;
-    display: inline-block;
-    margin-left: 5px;
-    color: #333;
-}
-
-.typewriter-text.done::after {
-    content: none;
-}
-
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-}
-
-.section-3 {
-    width: 100%;
-    padding: 50px 20px;
-}
-
-.title-1 p {
-    text-align: center;
-    font-size: 18px;
-    padding-top: 50px;
-}
-
-.title-2 h1 {
-    text-align: center;
-    font-size: 3rem;
-    padding: 20px 0 40px;
-    line-height: 1.2;
-}
-
-.Success {
-    color: #1CBBB6;
-}
-
-.cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
-    align-items: stretch;
-}
-
-.cards > div {
-    background-color: #ffffff;
-    border: 1px solid #D1D1D1;
-    border-radius: 20px;
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    padding: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.cards > div:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 16px rgba(0, 0, 0, 0.15);
-    background-color: #f5f5f5;
-}
-
-.cards div h1 {
-    font-size: 24px;
-    padding-bottom: 10px;
-}
-
-.cards div p {
-    color: #7B7B7B;
-    font-size: 16px;
-    padding-bottom: 30px;
-}
-
-.cards div h2 {
-    font-size: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.cards div span img {
-    width: 32px;
-    height: 32px;
-}
-
-.readmore {
-    color: #232323;
-    font-weight: 500;
-    margin-left: auto;
-    padding-right: 10px;
-}
-
-.readmore-icon img {
-    width: 18px;
-    height: 18px;
-}
-
-/* Responsive Breakpoints */
-@media screen and (max-width: 768px) {
-    .title-2 h1 {
-        font-size: 2.2rem;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive Centered Navbar</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
-    .cards {
+    body {
+      background-color: #f6f6f6;
+    }
+
+    .nav-bar {
+      z-index: 999;
+      position: sticky;
+      top: 0;
+      background: transparent;
+      padding: 15px;
+    }
+
+    .nav-container {
+      background: #ffffff;
+      border: 1px solid #D1D1D1;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 25px;
+      position: relative;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    ul {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      list-style: none;
+    }
+
+    li a {
+      color: black;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    li a:hover {
+      color: #1CBBB6;
+    }
+
+    button {
+      background-color: #1CBBB6;
+      border: none;
+      border-radius: 99px;
+      padding: 14px 25px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    button a {
+      color: white;
+      text-decoration: none;
+    }
+
+    button img {
+      height: 20px;
+    }
+
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .burger div {
+      width: 25px;
+      height: 3px;
+      background-color: #000;
+      transition: all 0.3s ease-in-out;
+    }
+
+    /* Burger animation to "X" */
+    .burger.active div:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .burger.active div:nth-child(2) {
+      opacity: 0;
+    }
+
+    .burger.active div:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Mobile styles */
+    @media (max-width: 768px) {
+      ul {
         flex-direction: column;
         align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        right: 0;
+        background-color: #fff;
+        border-radius: 20px;
+        padding: 40px 20px;
+        gap: 20px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        z-index: 998;
+        opacity: 0;
+        transform: translateY(-20px);
+        pointer-events: none;
+        transition: all 0.4s ease;
+      }
+
+      ul.active {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      .burger {
+        display: flex;
+      }
+
+      button {
+        display: none; /* Hide GET IN TOUCH on small screens */
+      }
     }
+  </style>
+</head>
+<body>
+  <nav class="nav-bar">
+    <div class="nav-container">
+      <div class="logo">
+        <a href="#"><img src="img/Aspirant logo.png" alt="Logo" /></a>
+      </div>
 
-    .cards > div {
-        width: 90%;
-    }
-}
+      <div class="burger" onclick="toggleMenu(this)">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
 
-@media screen and (max-width: 480px) {
-    .title-2 h1 {
-        font-size: 1.8rem;
-    }
+      <ul id="nav-links">
+        <li><a href="#">Homes</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
 
-    .cards div h1 {
-        font-size: 20px;
-    }
-
-    .cards div p {
-        font-size: 14px;
-    }
-
-    .readmore {
-        font-size: 14px;
-        padding-right: 5px;
-    }
-}
-</style>
-
-    </style>
-
-     <div class="section-3">
-        <div class="title-1">
-            <p>------ Technology What We Use ------</p>
-        </div>
-        <div class="title-2">
-            <h1 class="typewriter-text" style="white-space: pre-line;"></h1>
-        </div>
-        <div class="cards">
-            <div>
-                <h1>Digital Transformation</h1>
-                <p>A creative agency providing the to <br> businesses build </p>
-                <h2 class="icon-1">
-                    <span><img src="img/card-icon-1.png" alt=""> </span>
-                    <a class="readmore" href="#">Read More </a>
-                    <a class="readmore-icon" href=""><img src="img/card-readmore.png"></a>
-                </h2>
-            </div>
-            <div>
-                <h1>Application Development</h1>
-                <p>A creative agency providing the to <br> businesses build </p>
-                <h2 class="icon-2">
-                    <span><img src="img/card-icon-2.png" alt=""></span>
-                    <a class="readmore" href="#">Read More </a>
-                    <a class="readmore-icon" href=""><img src="img/card-readmore.png"></a>
-                </h2>
-            </div>
-            <div>
-                <h1>Artificial Intelligence<span class="Success">(AI)</span></h1>
-                <p>A creative agency providing the to <br> businesses build </p>
-                <h2 class="icon-3">
-                    <span><img src="img/card-icon-3.png" alt=""></span>
-                    <a class="readmore" href="#">Read More </a>
-                    <a class="readmore-icon" href=""><img src="img/card-readmore.png"></a>
-                </h2>
-
-            </div>
-        </div>
+      <button>
+        <a href="#">GET IN TOUCH <img src="img/getintouch img.png" alt=""></a>
+      </button>
     </div>
+  </nav>
 
-    <script>
-        
-const element = document.querySelector(".typewriter-text");
-const htmlString = `Unleashing Creativity The <br> Unleashing <span class="Success">Success</span>`;
-let hasTyped = false; // Prevent multiple runs
-
-// Typewriter function
-function startTypewriter() {
-    let i = 0;
-    let isTag = false;
-    let text = "";
-
-    function type() {
-        text += htmlString[i];
-
-        if (htmlString[i] === "<") isTag = true;
-        if (htmlString[i] === ">") isTag = false;
-
-        element.innerHTML = text;
-
-        i++;
-        if (i < htmlString.length) {
-            setTimeout(type, isTag ? 0 : 50);
-        } else {
-            element.classList.add("done"); // Hide cursor
-        }
+  <script>
+    function toggleMenu(burger) {
+      const navLinks = document.getElementById("nav-links");
+      navLinks.classList.toggle("active");
+      burger.classList.toggle("active");
     }
-
-    type();
-}
-
-// Observer to detect .section-3 coming into view
-
-const observer = new IntersectionObserver(
-    (entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !hasTyped) {
-                hasTyped = true;
-                startTypewriter();
-            }
-        });
-    },
-    {
-        threshold: 0.5, // 50% of section must be visible
-    }
-);
-
-// Start observing section-3
-observer.observe(document.querySelector(".section-3"));
-
-    </script>
+  </script>
 </body>
 </html>

@@ -1,4 +1,11 @@
+  
 
+//   navbar burger menu
+ function toggleMenu(burger) {
+    const navLinks = document.getElementById("nav-links");
+    navLinks.classList.toggle("active");
+    burger.classList.toggle("active");
+}
 
 
 //slick slider setting
