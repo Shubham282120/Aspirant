@@ -63,17 +63,10 @@
 
 
  /* section-1 */
-  * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    body {
-      background-color: #f6f6f6;
-    }
-
+ 
+.Success{
+    color: #1CBBB6;
+}
     .nav-bar {
       z-index: 999;
       position: sticky;
@@ -412,90 +405,123 @@
  }
 
 
- .section-3 {
-     width: 100%;
-     height: 700px;
+.section-3 {
+  width: 100%;
+  padding: 60px 20px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
 
- }
+.title-1 p {
+  text-align: center;
+  font-size: 1rem;
+  color: #888;
+  margin-bottom: 10px;
+}
 
- .title-1 p {
-     padding-top: 100px;
-     text-align: center;
- }
+.title-2 h1 {
+  text-align: center;
+  font-size: 3rem;
+  color: #232323;
+  margin-bottom: 50px;
+  line-height: 1.2;
+}
 
- .title-2 h1 {
-     padding-top: 20px;
-     padding-bottom: 50px;
-     text-align: center;
-     font-size: 70px;
- }
+.typewriter-text::after {
+  content: "|";
+  animation: blink 0.7s infinite;
+  display: inline-block;
+  margin-left: 5px;
+  color: #333;
+}
 
- .Success {
-     color: #1CBBB6;
- }
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
 
- .cards {
-     display: flex;
-     justify-content: space-evenly;
- }
+/* Cards Layout */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
 
+.cards > div {
+  background-color: #ffffff;
+  border: 1px solid #D1D1D1;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 380px;
+  padding: 25px 20px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
- .cards>div {
-     background-color: #ffffff;
-     border: 1px solid #D1D1D1;
-     border-radius: 20px;
-     width: 400px;
-     height: 280px;
+.cards > div:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 16px rgba(0, 0, 0, 0.15);
+  background-color: #f5f5f5;
+}
 
- }
+.cards div h1 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #232323;
+}
 
- .cards div h1 {
-     font-size: 27px;
-     text-align: start;
-     padding: 30px 15px 15px 15px;
- }
+.cards div p {
+  font-size: 1rem;
+  color: #7B7B7B;
+  margin-bottom: 30px;
+}
 
- .cards div p {
-     color: #7B7B7B;
-     text-align: start;
-     padding: 10px 0 0 20px;
- }
+.cards div h2 {
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
- .cards div span {
-     padding-top: 50px;
-     padding-left: 20px;
- }
+.readmore {
+  color: #232323;
+}
 
- .cards div h2 {
-     font-size: 15px;
-     display: flex;
-     justify-content: space-between;
- }
+.readmore-icon img {
+  width: 20px;
+  height: 20px;
+}
 
- /* hover */
- .cards>div {
-     transition: transform 0.3s ease, box-shadow 0.3s ease;
-     border-radius: 10px;
- }
+/* Typewriter responsive font */
+@media (max-width: 768px) {
+  .title-2 h1 {
+    font-size: 2.2rem;
+  }
 
- .cards>div:hover {
-     transform: scale(1.1);
-     box-shadow: 0 10px 16px rgba(0, 0, 0, 0.15);
-     background-color: #f5f5f5;
- }
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
- .readmore {
-     color: #232323;
-     width: auto;
-     height: 20px;
-     padding-top: 65px;
-     padding-left: 85px;
- }
+@media (max-width: 480px) {
+  .title-2 h1 {
+    font-size: 1.8rem;
+  }
 
- .readmore-icon {
-     padding-top: 55px;
-     padding-right: 30px;
- }
+  .cards > div {
+    padding: 20px;
+  }
+
+  .cards div h1 {
+    font-size: 1.3rem;
+  }
+
+  .cards div p {
+    font-size: 0.95rem;
+  }
+}
 
  /* section-4 */
  .section-4 {
