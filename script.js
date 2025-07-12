@@ -78,7 +78,7 @@ function startTypewriter() {
 
 const observer = new IntersectionObserver(
     (entries) => {
-        entries.forEach(entry => {
+        entries.forEach(entry => { 
             if (entry.isIntersecting && !hasTyped) {
                 hasTyped = true;
                 startTypewriter();

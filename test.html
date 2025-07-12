@@ -1,164 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Responsive Team Slider</title>
-
-  <!-- Slick CSS -->
-  <link rel="stylesheet" type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
-  <link rel="stylesheet" type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" />
-
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f4f4f4;
-    }
-
-    .slider-container {
-      padding-top: 60px;
-      width: 90%;
-      margin: auto;
-      position: relative;
-    }
-
-    .team-slider .slide {
-      padding: 0 15px;
-    }
-
-    .team-slider img {
-      background-color: aqua;
-      border-radius: 150px 150px 20px 20px;
-      width: 100%;
-      height: 350px;
-      max-width: 330px;
-      margin: auto;
-      display: block;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Spacing between slides */
-    .slick-slide {
-      box-sizing: border-box;
-    }
-
-    /* Arrow positioning */
-    .slick-prev, .slick-next {
-      top: -45px;
-      width: 35px;
-      height: 35px;
-      z-index: 5;
-    }
-
-    .slick-prev {
-      right: 50px;
-      left: auto;
-    }
-
-    .slick-next {
-      right: 10px;
-    }
-
-    .slick-prev:before,
-    .slick-next:before {
-      font-size: 20px;
-      color: #333;
-    }
-
-    /* Responsive Spacing */
-    @media (max-width: 768px) {
-      .team-slider .slide {
-        padding: 0 10px;
-      }
-
-      .slick-prev, .slick-next {
-        top: -40px;
-        width: 30px;
-        height: 30px;
-      }
-
-      .slick-prev {
-        right: 45px;
-      }
-
-      .slick-next {
-        right: 10px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .team-slider .slide {
-        padding: 0 5px;
-      }
-
-      .slick-prev,
-      .slick-next {
-        top: -35px;
-        width: 28px;
-        height: 28px;
-      }
-
-      .slick-prev {
-        right: 40px;
-      }
-
-      .slick-next {
-        right: 8px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
-
 <body>
+    <style>
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-  <div class="slider-container">
-    <div class="team-slider">
-      <div class="slide"><img src="img/dheeraj img.png" alt="Team Slide 1"></div>
-      <div class="slide"><img src="img/sandeep img.png" alt="Team Slide 2"></div>
-      <div class="slide"><img src="img/anthony img.png" alt="Team Slide 3"></div>
-      <div class="slide"><img src="img/dheeraj img.png" alt="Team Slide 4"></div>
-      <div class="slide"><img src="img/sandeep img.png" alt="Team Slide 5"></div>
-      <div class="slide"><img src="img/anthony img.png" alt="Team Slide 6"></div>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.typewriter-text::after {
+    content: "|";
+    animation: blink 0.7s infinite;
+    display: inline-block;
+    margin-left: 5px;
+    color: #333;
+}
+
+.typewriter-text.done::after {
+    content: none;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.section-3 {
+    width: 100%;
+    padding: 50px 20px;
+}
+
+.title-1 p {
+    text-align: center;
+    font-size: 18px;
+    padding-top: 50px;
+}
+
+.title-2 h1 {
+    text-align: center;
+    font-size: 3rem;
+    padding: 20px 0 40px;
+    line-height: 1.2;
+}
+
+.Success {
+    color: #1CBBB6;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.cards > div {
+    background-color: #ffffff;
+    border: 1px solid #D1D1D1;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cards > div:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 16px rgba(0, 0, 0, 0.15);
+    background-color: #f5f5f5;
+}
+
+.cards div h1 {
+    font-size: 24px;
+    padding-bottom: 10px;
+}
+
+.cards div p {
+    color: #7B7B7B;
+    font-size: 16px;
+    padding-bottom: 30px;
+}
+
+.cards div h2 {
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cards div span img {
+    width: 32px;
+    height: 32px;
+}
+
+.readmore {
+    color: #232323;
+    font-weight: 500;
+    margin-left: auto;
+    padding-right: 10px;
+}
+
+.readmore-icon img {
+    width: 18px;
+    height: 18px;
+}
+
+/* Responsive Breakpoints */
+@media screen and (max-width: 768px) {
+    .title-2 h1 {
+        font-size: 2.2rem;
+    }
+
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cards > div {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .title-2 h1 {
+        font-size: 1.8rem;
+    }
+
+    .cards div h1 {
+        font-size: 20px;
+    }
+
+    .cards div p {
+        font-size: 14px;
+    }
+
+    .readmore {
+        font-size: 14px;
+        padding-right: 5px;
+    }
+}
+</style>
+
+    </style>
+
+     <div class="section-3">
+        <div class="title-1">
+            <p>------ Technology What We Use ------</p>
+        </div>
+        <div class="title-2">
+            <h1 class="typewriter-text" style="white-space: pre-line;"></h1>
+        </div>
+        <div class="cards">
+            <div>
+                <h1>Digital Transformation</h1>
+                <p>A creative agency providing the to <br> businesses build </p>
+                <h2 class="icon-1">
+                    <span><img src="img/card-icon-1.png" alt=""> </span>
+                    <a class="readmore" href="#">Read More </a>
+                    <a class="readmore-icon" href=""><img src="img/card-readmore.png"></a>
+                </h2>
+            </div>
+            <div>
+                <h1>Application Development</h1>
+                <p>A creative agency providing the to <br> businesses build </p>
+                <h2 class="icon-2">
+                    <span><img src="img/card-icon-2.png" alt=""></span>
+                    <a class="readmore" href="#">Read More </a>
+                    <a class="readmore-icon" href=""><img src="img/card-readmore.png"></a>
+                </h2>
+            </div>
+            <div>
+                <h1>Artificial Intelligence<span class="Success">(AI)</span></h1>
+                <p>A creative agency providing the to <br> businesses build </p>
+                <h2 class="icon-3">
+                    <span><img src="img/card-icon-3.png" alt=""></span>
+                    <a class="readmore" href="#">Read More </a>
+                    <a class="readmore-icon" href=""><img src="img/card-readmore.png"></a>
+                </h2>
+
+            </div>
+        </div>
     </div>
-  </div>
 
-  <!-- jQuery + Slick JS -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <script>
+        
+const element = document.querySelector(".typewriter-text");
+const htmlString = `Unleashing Creativity The <br> Unleashing <span class="Success">Success</span>`;
+let hasTyped = false; // Prevent multiple runs
 
-  <script>
-    $(document).ready(function () {
-      $('.team-slider').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        arrows: true,
-        dots: true,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        infinite: true,
-        responsive: [
-          {
-            breakpoint: 992,
-            settings: {
-              slidesToShow: 2
+// Typewriter function
+function startTypewriter() {
+    let i = 0;
+    let isTag = false;
+    let text = "";
+
+    function type() {
+        text += htmlString[i];
+
+        if (htmlString[i] === "<") isTag = true;
+        if (htmlString[i] === ">") isTag = false;
+
+        element.innerHTML = text;
+
+        i++;
+        if (i < htmlString.length) {
+            setTimeout(type, isTag ? 0 : 50);
+        } else {
+            element.classList.add("done"); // Hide cursor
+        }
+    }
+
+    type();
+}
+
+// Observer to detect .section-3 coming into view
+
+const observer = new IntersectionObserver(
+    (entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !hasTyped) {
+                hasTyped = true;
+                startTypewriter();
             }
-          },
-          {
-            breakpoint: 600,
-            settings: {
-              slidesToShow: 1
-            }
-          }
-        ]
-      });
-    });
-  </script>
+        });
+    },
+    {
+        threshold: 0.5, // 50% of section must be visible
+    }
+);
 
+// Start observing section-3
+observer.observe(document.querySelector(".section-3"));
+
+    </script>
 </body>
-
 </html>
