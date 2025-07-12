@@ -475,7 +475,6 @@
  /* hover */
  .cards>div {
      transition: transform 0.3s ease, box-shadow 0.3s ease;
-     padding: 20px;
      border-radius: 10px;
  }
 
