@@ -486,11 +486,14 @@
 
 .readmore {
   color: #232323;
+  padding-left: 130px;
 }
 
 .readmore-icon img {
-  width: 20px;
-  height: 20px;
+     width: 71px;
+    height: 40px;
+    padding-top: 7px;
+    padding-left: 5px;
 }
 
 /* Typewriter responsive font */
@@ -521,7 +524,12 @@
   .cards div p {
     font-size: 0.95rem;
   }
+  .readmore{
+    color: #232323;
+    padding-left: 80px;
 }
+}
+
 
  /* section-4 */
  .section-4 {
