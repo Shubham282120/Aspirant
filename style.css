@@ -614,17 +614,79 @@
 
  /* section 7 */
 
- .Company-logos {
-     display: flex;
-     flex-wrap: wrap;
-     align-items: center;
- }
+.company-section {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 40px 0;
+    background: #fff;
+}
 
- .Company-logos div {
-     width: 25%;
-     align-items: center;
- }
-    .Company-logos img {
-      text-align: center;
-      gap: 20px;
+/* Wrapper: hides overflow */
+.marquee-wrapper {
+    overflow: hidden;
+    width: 100%;
+}
+
+/* Track: the scrolling container */
+.marquee-track {
+    display: flex;
+    width: fit-content;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+/* Scroll directions */
+.marquee-track.left {
+    animation: scrollLeft 20s linear infinite;
+}
+
+.marquee-track.right {
+    animation: scrollRight 20s linear infinite;
+}
+
+/* Group: contains logos */
+.marquee-group {
+    display: flex;
+    gap: 5vw; /* Responsive spacing */
+}
+
+/* Images: responsive */
+.marquee-group img {
+    width: 15vw;        /* Responsive width */
+    max-width: 100px;   /* Limit max size */
+    height: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* Animations */
+@keyframes scrollLeft {
+    0% {
+        transform: translateX(0%);
     }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes scrollRight {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(50%);
+    }
+}
+
+/* Mobile responsive tweaks */
+@media (max-width: 600px) {
+    .marquee-group img {
+        width: 25vw;   /* Make logos a bit bigger on small screens */
+        max-width: 80px;
+    }
+
+    .marquee-group {
+        gap: 8vw;
+    }
+}
