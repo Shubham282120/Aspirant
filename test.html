@@ -2,228 +2,202 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Final Slider Fix</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
+      text-decoration: none;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
-    body {
-      background-color: #f9fafa;
-      padding: 20px;
-    }
-
-    .slider-container {
-      max-width: 1200px;
-      margin: auto;
-      overflow: hidden;
-    }
-
-    .slider-wrapper {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
+    /* SECTION-4 Responsive Styling */
+    .section-4 {
+      padding: 40px 20px;
+      background-color: #d1d1d17c;
       width: 100%;
+      height: auto;
     }
 
-    .slide {
-      min-width: 100%;
+    /* About Title */
+    .about-title {
+      padding-left: 20px;
+      color: #8b8989;
+      font-size: 18px;
+    }
+
+    /* Header */
+    .about-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 30px 20px;
+      gap: 20px;
+    }
+
+    .about-header h1 {
+      font-size: 60px;
+      font-weight: 600;
+      flex: 1 1 300px;
+    }
+
+    .about-header p {
+      display: flex;
+      font-size: 18px;
+      color: #7B7B7B;
+      letter-spacing: 0.5px;
+      align-items: flex-end;
+      padding-right: 10%;
+      ;
+    }
+
+    /* Content Layout */
+    .about-part-2 {
+      display: flex;
+      flex-direction: row-reverse;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      padding: 30px 0;
+    }
+
+    /* Image Styling */
+    .about-img img {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    /* Text Points */
+    .about-points {
+      max-width: 600px;
+      width: 100%;
       display: flex;
       flex-direction: column;
       gap: 30px;
+      padding: 0 10px;
     }
 
-    .slide-content {
+    .about-points div {
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 20px;
       flex-wrap: wrap;
-    }
-
-    .left-content {
-      flex: 1;
-      min-width: 300px;
-    }
-
-    .left-content h1 {
-      font-size: 2.5rem;
-      font-weight: bold;
-      line-height: 1.3;
-    }
-
-    .left-content h1 span {
-      color: #03bfc4;
-    }
-
-    .right-content {
-      flex: 1;
-      min-width: 300px;
-      display: flex;
-      flex-direction: column;
       align-items: flex-start;
-      gap: 15px;
+      row-gap: 10px;
+      column-gap: 15px;
     }
 
-    .top-caption {
-      font-size: 1rem;
-      color: #444;
-      max-width: 100%;
-      padding-top: 30px;
-      padding-bottom: 10px;
+    .about-points h1 {
+      font-size: 22px;
+      font-weight: 600;
+      margin: 0;
+      color: #232323;
     }
 
-    .right-images {
-      display: flex;
-      gap: 20px;
-      width: 100%;
+    .about-points p {
+      font-size: 16px;
+      font-weight: 500;
+      color: #7B7B7B;
+      margin: 0;
     }
 
-    .image-wrapper {
-      position: relative;
-      flex: 1;
-      border-radius: 12px;
-      overflow: hidden;
+    .about-points img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
     }
 
-    .image-wrapper img {
-      width: 100%;
-      border-radius: 12px;
-      display: block;
-    }
-
-    .next-btn-wrapper {
-    position: absolute;
-    bottom: 3px;
-    right: 75px;
-    }
-
-    .next-button {
-      padding: 10px 24px;
-      background: #eafaf9;
-      border: none;
-      border-radius: 25px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .next-button:hover {
-      background-color: #03bfc4;
-      color: white;
-    }
-
+    /* Responsive Adjustments */
     @media (max-width: 768px) {
-      .slide-content {
+      .about-header h1 {
+        font-size: 40px;
+      }
+
+      .about-points {
+        max-width: 100%;
+        padding: 0;
+      }
+
+      .about-img img {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .about-header {
         flex-direction: column;
-        align-items: center;
+        gap: 10px;
+      }
+
+      .about-header h1 {
+        font-size: 32px;
         text-align: center;
       }
 
-      .right-content {
-        align-items: center;
-      }
-
-      .right-images {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .image-wrapper {
-        width: 90%;
-      }
-
-      .top-caption {
+      .about-header p {
         text-align: center;
+        font-size: 16px;
       }
 
-      .next-btn-wrapper {
-        position: static;
-        margin-top: 10px;
+      .about-title {
+        text-align: center;
+        padding-left: 0;
+      }
+
+      .about-points div {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .about-points img {
+        width: 40px;
+        height: 40px;
       }
     }
   </style>
-</head>
-
-<body>
-
-  <div class="slider-container">
-    <div class="slider-wrapper" id="sliderWrapper">
-      <!-- Slide -->
-      <div class="slide">
-        <div class="slide-content">
-          <!-- Left Heading -->
-          <div class="left-content">
-            <h1><span>IT STRATEGY</span> & ROADMAP<br>PLANNING</h1>
-          </div>
-
-          <!-- Right Images + Paragraph above 2nd image -->
-          <div class="right-content">
-
-
-            <div class="right-images">
-              <!-- First Image -->
-              <div class="image-wrapper">
-                <img src="img/slider-1.png" alt="Consultant Image" />
-              </div>
-
-              <!-- Second Image with NEXT button -->
-              <div class="image-wrapper">
-                <p class="top-caption">
-                  Unlock your business’s full potential with our expert IT <br> consultancy services.
-                </p>
-                <img src="img/slider-2.png" alt="Team Image" />
-                <div class="next-btn-wrapper">
-                  <button class="next-button" onclick="nextSlide()">NEXT →</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+  <div class="section-4">
+    <div class="about-title">
+      <p>------ ABOUT COMPANY </p>
+    </div>
+    <div class="about-header">
+      <h1>Crafting Brands The <br> Futures <span class="Success">Elevate</span> </h1>
+      <p>Aspirant Solutions is a unique organization <br> because of it's combined expertise in IT & <br>
+        Advertising
+        Industry.</p>
+    </div>
+    <div class="about-part-2">
+      <div class="about-img"> <img src="img/About-img.png" alt="">
       </div>
+      <div class="about-points">
 
-      <!-- Slide 2 (optional duplicate) -->
-      <div class="slide">
-        <div class="slide-content">
-          <div class="left-content">
-            <h1><span>IT STRATEGY</span> & ROADMAP<br>PLANNING</h1>
-          </div>
-          <div class="right-content">
-
-            <div class="right-images">
-              <div class="image-wrapper">
-                <img src="img/slider-1.png" alt="Consultant Image" />
-              </div>
-              <div class="image-wrapper">
-                <p class="top-caption">
-                  Unlock your business’s full potential with our expert IT <br> consultancy services.
-                </p>
-                <img src="img/slider-2.png" alt="Team Image" />
-                <div class="next-btn-wrapper">
-                  <button class="next-button" onclick="nextSlide()">NEXT →</button>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div>
+          <img src="img/About-icon.png" alt="">
+          <h1>Brand Craft</h1>
+          <p>Creative agency specializes provid innovative solutions They offer to help businesses build
+          </p>
         </div>
-      </div>
+        <div>
+          <img src="img/Abou-icon2.png" alt="">
+          <h1>Pixel Perfect Solutions</h1>
+          <p>Creative agency specializes provid innovative solutions They offer to help businesses build
+          </p>
+        </div>
+        <div>
+          <img src="img/About-icon3.png" alt="">
+          <h1>Concept Craft Agency</h1>
+          <p>Creative agency specializes provid innovative solutions They offer to help businesses build
+          </p>
+        </div>
 
+      </div>
     </div>
   </div>
-
-  <script>
-    let currentIndex = 0;
-    function nextSlide() {
-      const wrapper = document.getElementById("sliderWrapper");
-      const totalSlides = wrapper.children.length;
-      currentIndex = (currentIndex + 1) % totalSlides;
-      wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
-    }
-  </script>
 
 </body>
 
