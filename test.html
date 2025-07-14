@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Final Slider Fix</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #f9fafa;
+      padding: 20px;
+    }
+
+    .slider-container {
+      max-width: 1200px;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    .slider-wrapper {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: 100%;
+    }
+
+    .slide {
+      min-width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .slide-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .left-content {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .left-content h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      line-height: 1.3;
+    }
+
+    .left-content h1 span {
+      color: #03bfc4;
+    }
+
+    .right-content {
+      flex: 1;
+      min-width: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    .top-caption {
+      font-size: 1rem;
+      color: #444;
+      max-width: 100%;
+      padding-top: 30px;
+      padding-bottom: 10px;
+    }
+
+    .right-images {
+      display: flex;
+      gap: 20px;
+      width: 100%;
+    }
+
+    .image-wrapper {
+      position: relative;
+      flex: 1;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .image-wrapper img {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+    }
+
+    .next-btn-wrapper {
+    position: absolute;
+    bottom: 3px;
+    right: 75px;
+    }
+
+    .next-button {
+      padding: 10px 24px;
+      background: #eafaf9;
+      border: none;
+      border-radius: 25px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .next-button:hover {
+      background-color: #03bfc4;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .slide-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .right-content {
+        align-items: center;
+      }
+
+      .right-images {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .image-wrapper {
+        width: 90%;
+      }
+
+      .top-caption {
+        text-align: center;
+      }
+
+      .next-btn-wrapper {
+        position: static;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="slider-container">
+    <div class="slider-wrapper" id="sliderWrapper">
+      <!-- Slide -->
+      <div class="slide">
+        <div class="slide-content">
+          <!-- Left Heading -->
+          <div class="left-content">
+            <h1><span>IT STRATEGY</span> & ROADMAP<br>PLANNING</h1>
+          </div>
+
+          <!-- Right Images + Paragraph above 2nd image -->
+          <div class="right-content">
+
+
+            <div class="right-images">
+              <!-- First Image -->
+              <div class="image-wrapper">
+                <img src="img/slider-1.png" alt="Consultant Image" />
+              </div>
+
+              <!-- Second Image with NEXT button -->
+              <div class="image-wrapper">
+                <p class="top-caption">
+                  Unlock your business’s full potential with our expert IT <br> consultancy services.
+                </p>
+                <img src="img/slider-2.png" alt="Team Image" />
+                <div class="next-btn-wrapper">
+                  <button class="next-button" onclick="nextSlide()">NEXT →</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 (optional duplicate) -->
+      <div class="slide">
+        <div class="slide-content">
+          <div class="left-content">
+            <h1><span>IT STRATEGY</span> & ROADMAP<br>PLANNING</h1>
+          </div>
+          <div class="right-content">
+
+            <div class="right-images">
+              <div class="image-wrapper">
+                <img src="img/slider-1.png" alt="Consultant Image" />
+              </div>
+              <div class="image-wrapper">
+                <p class="top-caption">
+                  Unlock your business’s full potential with our expert IT <br> consultancy services.
+                </p>
+                <img src="img/slider-2.png" alt="Team Image" />
+                <div class="next-btn-wrapper">
+                  <button class="next-button" onclick="nextSlide()">NEXT →</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    let currentIndex = 0;
+    function nextSlide() {
+      const wrapper = document.getElementById("sliderWrapper");
+      const totalSlides = wrapper.children.length;
+      currentIndex = (currentIndex + 1) % totalSlides;
+      wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+  </script>
+
+</body>
+
+</html>

@@ -1,4 +1,11 @@
-  
+//   slider  
+let currentIndex = 0;
+    function nextSlide() {
+      const wrapper = document.getElementById("sliderWrapper");
+      const totalSlides = wrapper.children.length;
+      currentIndex = (currentIndex + 1) % totalSlides;
+      wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
 
 //   navbar burger menu
  function toggleMenu(burger) {
@@ -19,8 +26,6 @@ $(document).ready(function () {
         cssEase: 'linear',
     });
 });
-
-
 
 // section-2 count animation
 
@@ -48,7 +53,6 @@ counters.forEach(counter => {
 
     updateCount();
 });
-
 
 // type writer animation section-3
 
@@ -100,8 +104,6 @@ const observer = new IntersectionObserver(
 // Start observing section-3
 observer.observe(document.querySelector(".section-3"));
 
-
-
 // team-slider
 
  $(document).ready(function () {
@@ -135,6 +137,7 @@ observer.observe(document.querySelector(".section-3"));
             $('.loader_bg').fadeToggle();
         }, 1500);
 
+        
 
 
 
