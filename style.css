@@ -657,7 +657,7 @@
  .about-header h1 {
    font-size: 60px;
    font-weight: 600;
-   flex: 1 1 300px;
+   flex: 1 1 120px;
  }
 
  .about-header p {
@@ -759,7 +759,7 @@
    }
 
    .about-header h1 {
-     font-size: 32px;
+     font-size: 30px;
      text-align: center;
    }
 
