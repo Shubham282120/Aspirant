@@ -138,7 +138,19 @@ observer.observe(document.querySelector(".section-3"));
         }, 1500);
 
         
-
+// section-7 FAQs toggle
+ const faqs = document.querySelectorAll('.faqs');
+    faqs.forEach(faq => {
+      faq.addEventListener('click', () => {
+        faq.classList.toggle('active');
+        const answer = faq.querySelector('.answer');
+        if (faq.classList.contains('active')) {
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        } else {
+          answer.style.maxHeight = '0';
+        }
+      });
+    });
 
 
 
