@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FAQs + Brand Section</title>
+  <title>Contact Us</title>
   <style>
     * {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -14,328 +14,132 @@
     }
 
     body {
-      background-color: #F5F5F5;
+      background-color: #ffffff;
     }
 
-
-    .section-7 {
-      width: 100%;
+    .section-9-main {
       padding: 40px 20px;
+    }
+
+    .contact-us {
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-evenly;
-      gap: 50px;
+      align-items: flex-start;
+      gap: 40px;
+      flex-wrap: wrap;
     }
 
-    .faqs-container {
-      max-width: 700px;
-    }
-
-    .faqs {
-      padding: 20px;
-      margin-bottom: 1rem;
-      border-radius: 10px;
-      border-bottom: 2px solid #d1d1d1;
-      cursor: pointer;
-      transition: all 0.3s ease-in-out;
-    }
-
-    .questions {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .questions h3 {
-      font-size: 1.1rem;
-      color: #333;
+    .user-info,
+    .our-info-map {
       flex: 1;
-      margin-right: 10px;
+      min-width: 300px;
+      max-width: 500px;
     }
 
-    .answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
+    .user-info {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 9px 11px 20px 14px rgba(0, 0, 0, 0.05);
     }
 
-    .answer p {
-      padding-top: 1rem;
-      line-height: 1.6rem;
-      font-size: 0.95rem;
-      color: #555;
+    .user-info h1 {
+      margin-bottom: 25px;
+      color: #333;
+      font-size: 45px;
+      font-weight: 350;
     }
 
-    .faqs.active .answer {
-      max-height: 500px;
-      animation: fade 0.3s ease-in-out;
+    .user-info input,
+    .user-info textarea {
+      margin-bottom: 20px;
+      padding: 10px;
+      border: none;
+      border-bottom: 2px solid #ccc;
+      background-color: transparent;
+      width: 100%;
+      font-size: 16px;
+      outline: none;
     }
 
-    .faqs.active svg {
-      transform: rotate(180deg);
+    .user-info input:focus,
+    .user-info textarea:focus {
+      border-bottom-color: #1CBBB6;
     }
 
-    svg {
-      transition: transform 0.3s ease-in-out;
-      min-width: 24px;
+    .user-info textarea {
+      resize: vertical;
+      height: 100px;
     }
 
-    @keyframes fade {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0px);
-      }
-    }
-
-    .brands-bills {
-      flex: 1 1 300px;
-      max-width: 350px;
-      background-color: #fff;
-      padding: 30px 20px;
-      border-radius: 10px;
-      text-align: center;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-    }
-
-    .brands-bills img {
-      max-width: 100%;
-      height: auto;
-    }
-
-    .brands-bills h2 {
-      margin-top: 20px;
-      font-size: 1.5rem;
-      color: #222;
-    }
-
-    .brands-bills p {
-      font-size: 1rem;
-      margin: 15px 0;
-      color: #555;
-      line-height: 1.5;
-    }
-
-    .brands-bills a {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 20px;
+    .user-info button {
+      padding: 12px 24px;
       background-color: #1CBBB6;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: 500;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
       transition: background-color 0.3s ease;
     }
 
-    .brands-bills a:hover {
-      background-color: #159a94;
+    .user-info button:hover {
+      background-color: #0056b3;
     }
 
-    /* Responsive Styles */
-    @media (max-width: 1024px) {
-      .questions h3 {
-        font-size: 1rem;
-      }
+    .our-info-map h1 {
+      margin-bottom: 15px;
+      color: #333;
+      font-size: 45px;
+      font-weight: 400;
+    }
 
-      .answer p {
-        font-size: 0.95rem;
-      }
+    .our-info-map p {
+      color: #7B7B7B;
+      margin-bottom: 20px;
+    }
 
-      .brands-bills {
-        padding: 25px 15px;
-      }
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: 0;
+      border-radius: 10px;
     }
 
     @media (max-width: 768px) {
-      section {
+      .contact-us {
         flex-direction: column;
-        align-items: center;
-        padding: 30px 15px;
-        gap: 30px;
+        padding: 0;
       }
 
-      .faqs-container,
-      .brands-bills {
+      .user-info,
+      .our-info-map {
         max-width: 100%;
-        width: 100%;
-      }
-
-      .questions h3 {
-        font-size: 1rem;
-      }
-
-      .answer p {
-        font-size: 0.9rem;
-      }
-
-      .brands-bills {
-        margin-top: 20px;
       }
     }
-
-    @media (max-width: 480px) {
-      .questions h3 {
-        font-size: 0.95rem;
-      }
-
-      .answer p {
-        font-size: 0.9rem;
-      }
-
-      .brands-bills h2 {
-        font-size: 1.25rem;
-      }
-
-      .brands-bills p {
-        font-size: 0.9rem;
-      }
-    }
-
-   .title-qustions {
-  padding: 20px 10px;
-  max-width: 100%;
-  margin: 0 auto;
-}
-
-.title-qustions p {
-  color: #1CBBB6;
-  text-align: center;
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.title-qustions h1 {
-  text-align: center;
-  font-weight: 600;
-  font-size: 48px;
-  line-height: 1.3;
-  color: #222;
-  word-break: break-word;
-}
-
-/* Responsive title styling */
-@media (max-width: 768px) {
-  .title-qustions h1 {
-    font-size: 34px;
-  }
-
-  .title-qustions p {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .title-qustions h1 {
-    font-size: 26px;
-  }
-
-  .title-qustions p {
-    font-size: 14px;
-  }
-}
-
   </style>
 </head>
 
 <body>
-  <section>
-    <div class="title-qustions">
-      <p>------Ask Question------</p>
-      <h1>Got Questions? We've <br> <span class="Success"> Got Answers </span></h1>
-    </div>
-
-    
-    <div class="section-7">
-      <div class="faqs-container">
-        <div class="faqs">
-          <div class="questions">
-            <h3>Q1. What types of businesses do you support?</h3>
-            <svg width="25" height="10" viewBox="0 0 42 25 ">
-              <path d="M3 3L21 21L39 3" stroke="#1CBBB6" stroke-width="5" fill="none" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
-          </div>
-          <div class="answer">
-            <p>Car service is essential for maintaining the performance and maintaining the performance and longevity
-              Car
-              service is essential for maintaining</p>
-          </div>
-        </div>
-
-        <div class="faqs">
-          <div class="questions">
-            <h3>Q2. What are the signs of brake wear?</h3>
-            <svg width="25" height="10" viewBox="0 0 42 25 ">
-              <path d="M3 3L21 21L39 3" stroke="#1CBBB6" stroke-width="5" fill="none" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
-          </div>
-          <div class="answer">
-            <p>Car service is essential for maintaining the performance and maintaining the performance and longevity
-              Car
-              service is essential for maintaining</p>
-          </div>
-        </div>
-
-        <div class="faqs">
-          <div class="questions">
-            <h3>Q3. Can regular maintenance prevent major repairs?</h3>
-            <svg width="25" height="10" viewBox="0 0 42 25 ">
-              <path d="M3 3L21 21L39 3" stroke="#1CBBB6" stroke-width="5" fill="none" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
-          </div>
-          <div class="answer">
-            <p>Car service is essential for maintaining the performance and maintaining the performance and longevity
-              Car
-              service is essential for maintaining</p>
-          </div>
-        </div>
-
-        <div class="faqs">
-          <div class="questions">
-            <h3>Q4. Are scheduled service intervals important?</h3>
-            <svg width="25" height="10" viewBox="0 0 42 25 ">
-              <path d="M3 3L21 21L39 3" stroke="#1CBBB6" stroke-width="5" fill="none" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
-          </div>
-          <div class="answer">
-            <p>Car service is essential for maintaining the performance and maintaining the performance and longevity
-              Car
-              service is essential for maintaining</p>
-          </div>
-        </div>
+  <section class="section-9-main">
+    <div class="contact-us">
+      <div class="user-info">
+        <h1>Get In Touch</h1>
+        <input type="text" placeholder="Your Name" />
+        <input type="email" placeholder="Your Email" />
+        <textarea placeholder="Your Message"></textarea>
+        <button>Send Now</button>
       </div>
-
-      <div class="brands-bills">
-        <img src="img/brand bills.png" alt="Brand">
-        <h2>Brand Bliss Creations</h2>
-        <p>A creative agency providing innovative and unique solutions to help businesses grow and connect.</p>
-        <a href="#">Contact</a>
+      <div class="our-info-map">
+        <h1>Contact With Us <span class="Success">Today</span> </h1>
+        <p>A creative agency specializing in providing innovative and unique solutions to help businesses grow.</p>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3104.630515606942!2d72.86142687520976!3d19.24948438199107!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b193f1af94dd%3A0x99c62daf18a0a1b3!2sNorthern%20Supremus%2C%20Dahisar%20East!5e1!3m2!1sen!2sin!4v1752493265842!5m2!1sen!2sin"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </section>
 
-  <script>
-    const faqs = document.querySelectorAll('.faqs');
-    faqs.forEach(faq => {
-      faq.addEventListener('click', () => {
-        faq.classList.toggle('active');
-        const answer = faq.querySelector('.answer');
-        if (faq.classList.contains('active')) {
-          answer.style.maxHeight = answer.scrollHeight + 'px';
-        } else {
-          answer.style.maxHeight = '0';
-        }
-      });
-    });
-  </script>
 </body>
 
 </html>
