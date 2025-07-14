@@ -124,7 +124,7 @@
    color: #1CBBB6;
  }
 
- button {
+ .get-in-touch {
    background-color: #1CBBB6;
    border: none;
    border-radius: 99px;
@@ -206,7 +206,7 @@
      display: flex;
    }
 
-   button {
+   .get-in-touch {
      display: none;
      /* Hide GET IN TOUCH on small screens */
    }
