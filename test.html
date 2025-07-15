@@ -1,145 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive Testimonial Section</title>
   <style>
     * {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
-    body {
-      background-color: #ffffff;
-    }
-
-    .section-9-main {
-      padding: 40px 20px;
-    }
-
-    .contact-us {
+    .section-9 {
+      background-color: #d1d1d17c;
+      padding: 60px 20px;
       display: flex;
       justify-content: space-evenly;
-      align-items: flex-start;
-      gap: 40px;
+      align-items: center;
       flex-wrap: wrap;
+      gap: 30px;
     }
 
-    .user-info,
-    .our-info-map {
-      flex: 1;
-      min-width: 300px;
-      max-width: 500px;
+    .testimonial-header {
+      display: flex;
+      flex-direction: column;
+      max-width: 600px;
+      flex: 1 1 200px;
     }
 
-    .user-info {
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 30px;
-      box-shadow: 9px 11px 20px 14px rgba(0, 0, 0, 0.05);
-    }
-
-    .user-info h1 {
-      margin-bottom: 25px;
-      color: #333;
-      font-size: 45px;
-      font-weight: 350;
-    }
-
-    .user-info input,
-    .user-info textarea {
-      margin-bottom: 20px;
-      padding: 10px;
-      border: none;
-      border-bottom: 2px solid #ccc;
-      background-color: transparent;
-      width: 100%;
+    .testimonial-header p {
+      color: #1CBBB6;
+      margin-bottom: 10px;
       font-size: 16px;
-      outline: none;
     }
 
-    .user-info input:focus,
-    .user-info textarea:focus {
-      border-bottom-color: #1CBBB6;
-    }
-
-    .user-info textarea {
-      resize: vertical;
-      height: 100px;
-    }
-
-    .user-info button {
-      padding: 12px 24px;
-      background-color: #1CBBB6;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .user-info button:hover {
-      background-color: #0056b3;
-    }
-
-    .our-info-map h1 {
+    .testimonial-header h1 {
+      font-weight: 600;
+      font-size: 3rem;
+      line-height: 1.2;
       margin-bottom: 15px;
-      color: #333;
-      font-size: 45px;
-      font-weight: 400;
     }
 
-    .our-info-map p {
+    .testimonial-header h1 .Success {
+      color: #1CBBB6;
+    }
+
+    .testimonial-header h3 {
       color: #7B7B7B;
-      margin-bottom: 20px;
+      font-weight: 500;
+      font-size: 1rem;
     }
 
-    iframe {
+    .testimonial-slider {
+      background: #000;
       width: 100%;
-      height: 300px;
-      border: 0;
+      max-width: 500px;
+      height: 350px;
+      position: relative;
+      overflow: hidden;
       border-radius: 10px;
+      flex: 1 1 300px;
     }
 
     @media (max-width: 768px) {
-      .contact-us {
+      .section-9 {
         flex-direction: column;
-        padding: 0;
+        text-align: center;
       }
 
-      .user-info,
-      .our-info-map {
-        max-width: 100%;
+      .testimonial-header h1 {
+        font-size: 2.2rem;
+      }
+
+      .testimonial-header h3 {
+        font-size: 0.95rem;
+      }
+
+      .testimonial-slider {
+        height: 300px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .testimonial-header h1 {
+        font-size: 1.8rem;
+      }
+
+      .testimonial-header h3 {
+        font-size: 0.85rem;
+      }
+
+      .testimonial-slider {
+        height: 250px;
       }
     }
   </style>
 </head>
-
 <body>
-  <section class="section-9-main">
-    <div class="contact-us">
-      <div class="user-info">
-        <h1>Get In Touch</h1>
-        <input type="text" placeholder="Your Name" />
-        <input type="email" placeholder="Your Email" />
-        <textarea placeholder="Your Message"></textarea>
-        <button>Send Now</button>
-      </div>
-      <div class="our-info-map">
-        <h1>Contact With Us <span class="Success">Today</span> </h1>
-        <p>A creative agency specializing in providing innovative and unique solutions to help businesses grow.</p>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3104.630515606942!2d72.86142687520976!3d19.24948438199107!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b193f1af94dd%3A0x99c62daf18a0a1b3!2sNorthern%20Supremus%2C%20Dahisar%20East!5e1!3m2!1sen!2sin!4v1752493265842!5m2!1sen!2sin"
-          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
+  <div class="section-9">
+    <div class="testimonial-header">
+      <p>------ Client Testimonial ------</p>
+      <h1>
+        Excellence in Every <br>
+        Where <span class="Success">Ideas</span>
+      </h1>
+      <h3>
+        A creative agency speciali providing innovative and unique <br>
+        solutions to businesses build
+      </h3>
     </div>
-  </section>
-
+    <div class="testimonial-slider">
+      <!-- Your slider content goes here -->
+    </div>
+  </div>
 </body>
-
 </html>
