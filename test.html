@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Responsive Testimonial Section</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Slider</title>
   <style>
     * {
       margin: 0;
@@ -12,107 +13,231 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
-    .section-9 {
-      background-color: #d1d1d17c;
-      padding: 60px 20px;
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 30px;
+    body {
+      background: #f5f5f5;
     }
 
-    .testimonial-header {
-      display: flex;
-      flex-direction: column;
-      max-width: 600px;
-      flex: 1 1 200px;
-    }
-
-    .testimonial-header p {
-      color: #1CBBB6;
-      margin-bottom: 10px;
-      font-size: 16px;
-    }
-
-    .testimonial-header h1 {
-      font-weight: 600;
-      font-size: 3rem;
-      line-height: 1.2;
-      margin-bottom: 15px;
-    }
-
-    .testimonial-header h1 .Success {
-      color: #1CBBB6;
-    }
-
-    .testimonial-header h3 {
-      color: #7B7B7B;
-      font-weight: 500;
-      font-size: 1rem;
-    }
-
-    .testimonial-slider {
-      background: #000;
-      width: 100%;
-      max-width: 500px;
-      height: 350px;
-      position: relative;
+    .slider-container {
+      max-width: 1200px;
+      margin: auto;
       overflow: hidden;
-      border-radius: 10px;
-      flex: 1 1 300px;
+      padding: 40px 20px;
     }
 
-    @media (max-width: 768px) {
-      .section-9 {
+    .slider-wrapper {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+      padding: 20px;
+      min-width: 100%;
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: column;
+    }
+
+    .left-content {
+      width: 100%;
+      text-align: left !important;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    .left-content h1 {
+      font-size: 2.8rem;
+      font-weight: bold;
+      line-height: 1.3;
+      text-align: left;
+    }
+
+    .left-content h1 span {
+      color: #03bfc4;
+    }
+
+    .right-content {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .right-images {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .image-wrapper {
+      position: relative;
+      flex: 1;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .image-wrapper img {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+    }
+
+    .top-caption {
+      font-size: 1rem;
+      color: #444;
+      margin-bottom: 10px;
+    }
+
+    .next-btn-wrapper {
+      position: absolute;
+      bottom: 0;
+      /* Increased from 20px to 40px */
+      right: 60px;
+      /* Slightly adjusted for better spacing */
+    }
+
+
+    .next-button {
+      padding: 10px 24px;
+      background: #eafaf9;
+      border: none;
+      border-radius: 25px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .next-button:hover {
+      background-color: #03bfc4;
+      color: white;
+    }
+
+    /* Responsive Tweaks */
+    @media (max-width: 1024px) {
+      .slide {
         flex-direction: column;
+        align-items: center;
         text-align: center;
       }
 
-      .testimonial-header h1 {
-        font-size: 2.2rem;
+      .right-images {
+        flex-direction: column;
+        align-items: center;
       }
 
-      .testimonial-header h3 {
+      .image-wrapper:nth-child(2) img {
+        display: none;
+        /* Hide 2nd image */
+      }
+
+      .image-wrapper:nth-child(2) .top-caption {
+        display: block;
+        /* Show caption */
+      }
+
+      .image-wrapper {
+        width: 90%;
+      }
+
+      .left-content h1 {
+        font-size: 2rem;
+        text-align: center;
+      }
+
+      @media (max-width: 1024px) {
+        .next-btn-wrapper {
+          position: static;
+          margin-top: 10px;
+          text-align: center;
+        }
+      }
+
+    }
+
+    @media (max-width: 500px) {
+      .next-button {
+        padding: 8px 20px;
         font-size: 0.95rem;
       }
 
-      .testimonial-slider {
-        height: 300px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .testimonial-header h1 {
-        font-size: 1.8rem;
-      }
-
-      .testimonial-header h3 {
-        font-size: 0.85rem;
-      }
-
-      .testimonial-slider {
-        height: 250px;
+      .top-caption {
+        font-size: 0.95rem;
       }
     }
   </style>
 </head>
+
 <body>
-  <div class="section-9">
-    <div class="testimonial-header">
-      <p>------ Client Testimonial ------</p>
-      <h1>
-        Excellence in Every <br>
-        Where <span class="Success">Ideas</span>
-      </h1>
-      <h3>
-        A creative agency speciali providing innovative and unique <br>
-        solutions to businesses build
-      </h3>
-    </div>
-    <div class="testimonial-slider">
-      <!-- Your slider content goes here -->
+
+  <div class="slider-container">
+    <div class="slider-wrapper" id="sliderWrapper">
+
+      <!-- Slide 1 -->
+      <div class="slide">
+        <div class="left-content">
+          <h1><span>IT STRATEGY</span> & ROADMAP<br>PLANNING</h1>
+        </div>
+
+        <div class="right-content">
+          <div class="right-images">
+            <!-- First Image -->
+            <div class="image-wrapper">
+              <img src="img/slider-1.png" alt="Consultant Image" />
+            </div>
+
+            <!-- Second Image with caption -->
+            <div class="image-wrapper">
+              <p class="top-caption">
+                Unlock your business’s full potential with our expert IT <br> consultancy services.
+              </p>
+              <img src="img/slider-2.png" alt="Team Image" />
+              <div class="next-btn-wrapper">
+                <button class="next-button" onclick="nextSlide()">NEXT →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slide">
+        <div class="left-content">
+          <h1><span>DIGITAL SERVICES</span><br> THAT TRANSFORM</h1>
+        </div>
+
+        <div class="right-content">
+          <div class="right-images">
+            <div class="image-wrapper">
+              <img src="img/slider-1.png" alt="Digital Service Image" />
+            </div>
+
+            <div class="image-wrapper">
+              <p class="top-caption">
+                Scale your infrastructure, modernize IT, and unlock new revenue opportunities.
+              </p>
+              <img src="img/slider-2.png" alt="Digital Team Image" />
+              <div class="next-btn-wrapper">
+                <button class="next-button" onclick="nextSlide()">NEXT →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
+
+  <script>
+    let currentIndex = 0;
+    function nextSlide() {
+      const wrapper = document.getElementById("sliderWrapper");
+      const totalSlides = wrapper.children.length;
+      currentIndex = (currentIndex + 1) % totalSlides;
+      wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+  </script>
+
 </body>
+
 </html>

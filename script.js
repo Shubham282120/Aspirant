@@ -1,5 +1,5 @@
 //   slider  
-let currentIndex = 0;
+ let currentIndex = 0;
     function nextSlide() {
       const wrapper = document.getElementById("sliderWrapper");
       const totalSlides = wrapper.children.length;
