@@ -154,3 +154,26 @@ observer.observe(document.querySelector(".section-3"));
 
 
 
+    // testamonials slider
+     let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function showSlide(index, direction) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active', 'animate-left', 'animate-right');
+      });
+
+      const newSlide = slides[index];
+      newSlide.classList.add('active');
+      newSlide.classList.add(direction === 'left' ? 'animate-left' : 'animate-right');
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide, 'right');
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide, 'left');
+    }

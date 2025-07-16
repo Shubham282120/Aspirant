@@ -1,243 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Responsive Slider</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Animated Testimonial Slider</title>
   <style>
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
     }
 
     body {
-      background: #f5f5f5;
+      background-color: #f4f4f4;
     }
 
-    .slider-container {
-      max-width: 1200px;
-      margin: auto;
-      overflow: hidden;
-      padding: 40px 20px;
-    }
-
-    .slider-wrapper {
+    .section-9 {
+      background-color: #d1d1d17c;
+      padding: 60px 20px;
       display: flex;
-      transition: transform 0.5s ease-in-out;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .testimonial-header {
+      display: flex;
+      flex-direction: column;
+      max-width: 600px;
+      flex: 1 1 200px;
+    }
+
+    .testimonial-header p {
+      color: #1CBBB6;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .testimonial-header h1 {
+      font-weight: 600;
+      font-size: 4rem;
+      line-height: 1.2;
+      margin-bottom: 15px;
+    }
+
+    .testimonial-header h1 .Success {
+      color: #1CBBB6;
+    }
+
+    .testimonial-header h3 {
+      color: #7B7B7B;
+      font-weight: 500;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .slider-controls {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .slider-controls button {
+      padding: 8px 15px;
+      border: none;
+      background-color: #1CBBB6;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .slider-controls button:hover {
+      background-color: #15928e;
+    }
+
+    .testimonial-slider {
+      background-color: #000;
+      width: 100%;
+      max-width: 500px;
+      height: 350px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      flex: 1 1 300px;
+      color: #fff;
     }
 
     .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
       padding: 20px;
-      min-width: 100%;
-      display: flex;
-      gap: 30px;
-      flex-wrap: wrap;
+      text-align: center;
+      display: none;
+      justify-content: center;
       align-items: center;
-      justify-content: space-between;
       flex-direction: column;
     }
 
-    .left-content {
-      width: 100%;
-      text-align: left !important;
+    .slide.active {
       display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
     }
 
-    .left-content h1 {
-      font-size: 2.8rem;
-      font-weight: bold;
-      line-height: 1.3;
-      text-align: left;
+    .slide.animate-left {
+      animation: slideInFromLeft 0.6s ease;
     }
 
-    .left-content h1 span {
-      color: #03bfc4;
+    .slide.animate-right {
+      animation: slideInFromRight 0.6s ease;
     }
 
-    .right-content {
-      flex: 1;
-      min-width: 280px;
+    @keyframes slideInFromRight {
+      0% {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
     }
 
-    .right-images {
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
+    @keyframes slideInFromLeft {
+      0% {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
     }
 
-    .image-wrapper {
-      position: relative;
-      flex: 1;
-      border-radius: 12px;
-      overflow: hidden;
-    }
-
-    .image-wrapper img {
-      width: 100%;
-      border-radius: 12px;
-      display: block;
-    }
-
-    .top-caption {
-      font-size: 1rem;
-      color: #444;
+    .slide h1 {
       margin-bottom: 10px;
+      font-size: 1.5rem;
+      color: #fff;
     }
 
-    .next-btn-wrapper {
-      position: absolute;
-      bottom: 0;
-      /* Increased from 20px to 40px */
-      right: 60px;
-      /* Slightly adjusted for better spacing */
+    .slide p {
+      font-size: 1rem;
+      color: #ccc;
     }
 
-
-    .next-button {
-      padding: 10px 24px;
-      background: #eafaf9;
-      border: none;
-      border-radius: 25px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s;
+    .rating-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 15px;
+      flex-wrap: wrap;
     }
 
-    .next-button:hover {
-      background-color: #03bfc4;
-      color: white;
+    .rating-section img {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
     }
 
-    /* Responsive Tweaks */
-    @media (max-width: 1024px) {
-      .slide {
+    .rating {
+      font-size: 22px;
+      color: #FFD700;
+      letter-spacing: 2px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .section-9 {
         flex-direction: column;
-        align-items: center;
         text-align: center;
       }
 
-      .right-images {
-        flex-direction: column;
-        align-items: center;
+      .testimonial-header h1 {
+        font-size: 2.2rem;
       }
 
-      .image-wrapper:nth-child(2) img {
-        display: none;
-        /* Hide 2nd image */
+      .testimonial-header h3 {
+        font-size: 0.95rem;
       }
 
-      .image-wrapper:nth-child(2) .top-caption {
-        display: block;
-        /* Show caption */
+      .testimonial-slider {
+        height: 320px;
       }
-
-      .image-wrapper {
-        width: 90%;
-      }
-
-      .left-content h1 {
-        font-size: 2rem;
-        text-align: center;
-      }
-
-      @media (max-width: 1024px) {
-        .next-btn-wrapper {
-          position: static;
-          margin-top: 10px;
-          text-align: center;
-        }
-      }
-
     }
 
-    @media (max-width: 500px) {
-      .next-button {
-        padding: 8px 20px;
-        font-size: 0.95rem;
+    @media (max-width: 480px) {
+      .testimonial-header h1 {
+        font-size: 1.8rem;
       }
 
-      .top-caption {
-        font-size: 0.95rem;
+      .testimonial-header h3 {
+        font-size: 0.85rem;
+      }
+
+      .testimonial-slider {
+        height: 280px;
+      }
+
+      .rating-section {
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .rating {
+        font-size: 20px;
+      }
+
+      .rating-section img {
+        width: 25px;
+        height: 25px;
       }
     }
   </style>
 </head>
-
 <body>
 
-  <div class="slider-container">
-    <div class="slider-wrapper" id="sliderWrapper">
+  <div class="section-9">
+    <div class="testimonial-header">
+      <p>------ Client Testimonial ------</p>
+      <h1>
+        Excellence in Every <br>
+        Where <span class="Success">Ideas</span>
+      </h1>
+      <h3>
+        A creative agency speciali providing innovative and unique <br>
+        solutions to businesses build
+      </h3>
+      <div class="slider-controls">
+        <button onclick="prevSlide()">←</button>
+        <button onclick="nextSlide()">→</button>
+      </div>
+    </div>
 
-      <!-- Slide 1 -->
-      <div class="slide">
-        <div class="left-content">
-          <h1><span>IT STRATEGY</span> & ROADMAP<br>PLANNING</h1>
-        </div>
-
-        <div class="right-content">
-          <div class="right-images">
-            <!-- First Image -->
-            <div class="image-wrapper">
-              <img src="img/slider-1.png" alt="Consultant Image" />
-            </div>
-
-            <!-- Second Image with caption -->
-            <div class="image-wrapper">
-              <p class="top-caption">
-                Unlock your business’s full potential with our expert IT <br> consultancy services.
-              </p>
-              <img src="img/slider-2.png" alt="Team Image" />
-              <div class="next-btn-wrapper">
-                <button class="next-button" onclick="nextSlide()">NEXT →</button>
-              </div>
-            </div>
-          </div>
+    <div class="testimonial-slider">
+      <div class="slide active">
+        <h1>Rajeev Shukla</h1>
+        <p>A creative agency providing an innovative and unique solutions to businesses build their brand.</p>
+        <div class="rating-section">
+          <img src="img/quort.png" alt="quote icon" />
+          <div class="rating">★★★★☆</div>
         </div>
       </div>
 
-      <!-- Slide 2 -->
       <div class="slide">
-        <div class="left-content">
-          <h1><span>DIGITAL SERVICES</span><br> THAT TRANSFORM</h1>
-        </div>
-
-        <div class="right-content">
-          <div class="right-images">
-            <div class="image-wrapper">
-              <img src="img/slider-1.png" alt="Digital Service Image" />
-            </div>
-
-            <div class="image-wrapper">
-              <p class="top-caption">
-                Scale your infrastructure, modernize IT, and unlock new revenue opportunities.
-              </p>
-              <img src="img/slider-2.png" alt="Digital Team Image" />
-              <div class="next-btn-wrapper">
-                <button class="next-button" onclick="nextSlide()">NEXT →</button>
-              </div>
-            </div>
-          </div>
+        <h1>Shubham Vishwakarma</h1>
+        <p>Helping brands grow with creative, innovative and effective design solutions for modern challenges.</p>
+        <div class="rating-section">
+          <img src="img/quort.png" alt="quote icon" />
+          <div class="rating">★★★★★</div>
         </div>
       </div>
 
+      <div class="slide">
+        <h1>Vikas Yadav</h1>
+        <p>We make design easy for companies who want real results. Get design that works.</p>
+        <div class="rating-section">
+          <img src="img/quort.png" alt="quote icon" />
+          <div class="rating">★★★★☆</div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <h1>Rushikesh Mule</h1>
+        <p>Designing next-level experiences that help companies connect, inspire and grow.</p>
+        <div class="rating-section">
+          <img src="img/quort.png" alt="quote icon" />
+          <div class="rating">★★★★★</div>
+        </div>
+      </div>
     </div>
   </div>
 
   <script>
-    let currentIndex = 0;
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function showSlide(index, direction) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active', 'animate-left', 'animate-right');
+      });
+
+      const newSlide = slides[index];
+      newSlide.classList.add('active');
+      newSlide.classList.add(direction === 'left' ? 'animate-left' : 'animate-right');
+    }
+
     function nextSlide() {
-      const wrapper = document.getElementById("sliderWrapper");
-      const totalSlides = wrapper.children.length;
-      currentIndex = (currentIndex + 1) % totalSlides;
-      wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide, 'right');
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide, 'left');
     }
   </script>
 
 </body>
-
 </html>
