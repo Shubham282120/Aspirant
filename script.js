@@ -1,30 +1,30 @@
 //   slider  
- let currentIndex = 0;
-    function nextSlide() {
-      const wrapper = document.getElementById("sliderWrapper");
-      const totalSlides = wrapper.children.length;
-      currentIndex = (currentIndex + 1) % totalSlides;
-      wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
-    }
+let currentIndex = 0;
+function nextSlide() {
+  const wrapper = document.getElementById("sliderWrapper");
+  const totalSlides = wrapper.children.length;
+  currentIndex = (currentIndex + 1) % totalSlides;
+  wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
 
 //   navbar burger menu
- function toggleMenu(burger) {
-    const navLinks = document.getElementById("nav-links");
-    navLinks.classList.toggle("active");
-    burger.classList.toggle("active");
+function toggleMenu(burger) {
+  const navLinks = document.getElementById("nav-links");
+  navLinks.classList.toggle("active");
+  burger.classList.toggle("active");
 }
 
 
 //slick slider setting
 $(document).ready(function () {
-    $('.slider').slick({
-        arrows: false,
-        dots: false,
-        infinite: true,
-        speed: 1000,
-        fade: true,
-        cssEase: 'linear',
-    });
+  $('.slider').slick({
+    arrows: false,
+    dots: false,
+    infinite: true,
+    speed: 1000,
+    fade: true,
+    cssEase: 'linear',
+  });
 });
 
 // section-2 count animation
@@ -32,26 +32,26 @@ $(document).ready(function () {
 const counters = document.querySelectorAll(".col-numbers h1");
 
 counters.forEach(counter => {
-    const updateCount = () => {
-        const target = +counter.innerText.replace(/\D/g, '');
-        const speed = 150 // lower is faster
-        const increment = target / speed;
-        let count = 0;
+  const updateCount = () => {
+    const target = +counter.innerText.replace(/\D/g, '');
+    const speed = 150 // lower is faster
+    const increment = target / speed;
+    let count = 0;
 
-        const counting = () => {
-            count += increment;
-            if (count < target) {
-                counter.innerText = Math.ceil(count) + "+";
-                requestAnimationFrame(counting);
-            } else {
-                counter.innerText = target + "+";
-            }
-        };
-
-        counting();
+    const counting = () => {
+      count += increment;
+      if (count < target) {
+        counter.innerText = Math.ceil(count) + "+";
+        requestAnimationFrame(counting);
+      } else {
+        counter.innerText = target + "+";
+      }
     };
 
-    updateCount();
+    counting();
+  };
+
+  updateCount();
 });
 
 // type writer animation section-3
@@ -62,43 +62,43 @@ let hasTyped = false; // Prevent multiple runs
 
 // Typewriter function
 function startTypewriter() {
-    let i = 0;
-    let isTag = false;
-    let text = "";
+  let i = 0;
+  let isTag = false;
+  let text = "";
 
-    function type() {
-        text += htmlString[i];
+  function type() {
+    text += htmlString[i];
 
-        if (htmlString[i] === "<") isTag = true;
-        if (htmlString[i] === ">") isTag = false;
+    if (htmlString[i] === "<") isTag = true;
+    if (htmlString[i] === ">") isTag = false;
 
-        element.innerHTML = text;
+    element.innerHTML = text;
 
-        i++;
-        if (i < htmlString.length) {
-            setTimeout(type, isTag ? 0 : 50);
-        } else {
-            element.classList.add("done"); // Hide cursor
-        }
+    i++;
+    if (i < htmlString.length) {
+      setTimeout(type, isTag ? 0 : 50);
+    } else {
+      element.classList.add("done"); // Hide cursor
     }
+  }
 
-    type();
+  type();
 }
 
 // Observer to detect .section-3 coming into view
 
 const observer = new IntersectionObserver(
-    (entries) => {
-        entries.forEach(entry => { 
-            if (entry.isIntersecting && !hasTyped) {
-                hasTyped = true;
-                startTypewriter();
-            }
-        });
-    },
-    {
-        threshold: 0.5, // 50% of section must be visible
-    }
+  (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !hasTyped) {
+        hasTyped = true;
+        startTypewriter();
+      }
+    });
+  },
+  {
+    threshold: 0.5, // 50% of section must be visible
+  }
 );
 
 // Start observing section-3
@@ -106,74 +106,74 @@ observer.observe(document.querySelector(".section-3"));
 
 // team-slider
 
- $(document).ready(function () {
-      $('.team-slider').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        arrows: true,
-        autoplay: true,
-        autoplaySpeed: 1000,
-        infinite: true,
-        responsive: [
-          {
-            breakpoint: 992,
-            settings: {
-              slidesToShow: 2
-            }
-          },
-          {
-            breakpoint: 600,
-            settings: {
-              slidesToShow: 1
-            }
-          }
-        ]
-      });
-    });
+$(document).ready(function () {
+  $('.team-slider').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    arrows: true,
+    autoplay: true,
+    autoplaySpeed: 1000,
+    infinite: true,
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 2
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1
+        }
+      }
+    ]
+  });
+});
 
 
 // loader
-    setTimeout(function(){
-            $('.loader_bg').fadeToggle();
-        }, 1500);
+setTimeout(function () {
+  $('.loader_bg').fadeToggle();
+}, 1500);
 
-        
+
 // section-7 FAQs toggle
- const faqs = document.querySelectorAll('.faqs');
-    faqs.forEach(faq => {
-      faq.addEventListener('click', () => {
-        faq.classList.toggle('active');
-        const answer = faq.querySelector('.answer');
-        if (faq.classList.contains('active')) {
-          answer.style.maxHeight = answer.scrollHeight + 'px';
-        } else {
-          answer.style.maxHeight = '0';
-        }
-      });
-    });
-
-
-
-    // testamonials slider
-     let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
-
-    function showSlide(index, direction) {
-      slides.forEach((slide, i) => {
-        slide.classList.remove('active', 'animate-left', 'animate-right');
-      });
-
-      const newSlide = slides[index];
-      newSlide.classList.add('active');
-      newSlide.classList.add(direction === 'left' ? 'animate-left' : 'animate-right');
+const faqs = document.querySelectorAll('.faqs');
+faqs.forEach(faq => {
+  faq.addEventListener('click', () => {
+    faq.classList.toggle('active');
+    const answer = faq.querySelector('.answer');
+    if (faq.classList.contains('active')) {
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    } else {
+      answer.style.maxHeight = '0';
     }
+  });
+});
 
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % slides.length;
-      showSlide(currentSlide, 'right');
-    }
 
-    function prevSlide() {
-      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-      showSlide(currentSlide, 'left');
-    }
+
+// testamonials slider
+let currentTestimonial = 0;
+const testimonialCards = document.querySelectorAll('.testimonial-card');
+
+function showTestimonial(index, direction) {
+  testimonialCards.forEach((card) => {
+    card.classList.remove('active', 'animate-left', 'animate-right');
+  });
+
+  const newCard = testimonialCards[index];
+  newCard.classList.add('active');
+  newCard.classList.add(direction === 'left' ? 'animate-left' : 'animate-right');
+}
+
+function nextTestimonial() {
+  currentTestimonial = (currentTestimonial + 1) % testimonialCards.length;
+  showTestimonial(currentTestimonial, 'right');
+}
+
+function prevTestimonial() {
+  currentTestimonial = (currentTestimonial - 1 + testimonialCards.length) % testimonialCards.length;
+  showTestimonial(currentTestimonial, 'left');
+}
