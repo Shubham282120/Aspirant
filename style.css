@@ -33,7 +33,7 @@
    left: 50%;
    top: 80%;
    transform: translateX(-50%);
-   animation: flyTakeoff 4.5s ease-in-out forwards;
+   animation: flyTakeoff 4s ease-in-out forwards;
    width: 140px;
    height: 160px;
    text-align: center;
@@ -1689,7 +1689,6 @@
  /* Responsive */
  @media (max-width: 768px) {
    .testimonial-section {
-     flex-direction: column;
      text-align: center;
    }
 

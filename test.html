@@ -1,147 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Company Logos Slider</title>
-  <style>
-    body {
-      background-color: #000;
-      margin: 0;
-      padding: 0;
-      font-family: sans-serif;
-    }
-
-    @keyframes slide {
-      from {
-        transform: translateX(0%);
-      }
-      to {
-        transform: translateX(-100%);
-      }
-    }
-
-    @keyframes slide-reverse {
-      from {
-        transform: translateX(-100%);
-      }
-      to {
-        transform: translateX(0%);
-      }
-    }
-
-    .company-logos {
-      width: 100%;
-    }
-
-    .logos {
-      overflow: hidden;
-      padding: 15px 0;
-      background: #f5f5f5; /* ✅ Light gray background for visibility */
-      white-space: nowrap;
-      position: relative;
-    }
-
-    .logos::before,
-    .logos::after {
-      position: absolute;
-      top: 0;
-      width: 80px;
-      height: 100%;
-      content: "";
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    .logos::before {
-      left: 0;
-      background: linear-gradient(to left, rgba(245, 245, 245, 0), #f5f5f5);
-    }
-
-    .logos::after {
-      right: 0;
-      background: linear-gradient(to right, rgba(245, 245, 245, 0), #f5f5f5);
-    }
-
-    .logos-slide,
-    .logos-slide-reverse {
-      display: inline-block;
-      animation: 35s linear infinite;
-    }
-
-    .logos-slide {
-      animation-name: slide;
-    }
-
-    .logos-slide-reverse {
-      animation-name: slide-reverse;
-    }
-
-    .logos-slide img,
-    .logos-slide-reverse img {
-      height: 3vw;
-      max-height: 50px;
-      margin: 0 4vw;
-      vertical-align: middle;
-      filter: grayscale(100%);
-    }
-
-    /* Responsive styles */
-    @media (max-width: 768px) {
-      .logos-slide img,
-      .logos-slide-reverse img {
-        height: 10vw;
-        margin: 0 4vw;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .logos-slide img,
-      .logos-slide-reverse img {
-        height: 12vw;
-        margin: 0 3vw;
-      }
-
-      .logos::before,
-      .logos::after {
-        width: 40px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
+<style>
+    .preloader-container {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: white;
+   z-index: 9999;
+   opacity: 1;
+   transition: opacity 1.5s ease;
+ }
+
+ .preloader-container.fade-out {
+   opacity: 0;
+   pointer-events: none;
+ }
+
+ .fly-wrapper {
+   position: absolute;
+   left: 50%;
+   top: 80%;
+   transform: translateX(-50%);
+   animation: flyTakeoff 4.5s ease-in-out forwards;
+   width: 140px;
+   height: 160px;
+   text-align: center;
+ }
+
+ .plane {
+   width: 100px;
+   position: relative;
+   z-index: 3;
+   animation: planeSway s ease-in-out infinite alternate;
+   filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
+ }
+
+ .plane-name {
+   margin-top: 8px;
+   font-size: 20px;
+   font-weight: 600;
+   color: #1CBBB6;
+   letter-spacing: 1px;
+   animation: nameFade 4.5s ease-in-out forwards;
+ }
+
+ .glow-circle {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   width: 120px;
+   height: 120px;
+   border-radius: 50%;
+   background: radial-gradient(circle, rgba(0, 149, 255, 0.2) 0%, transparent 70%);
+   transform: translate(-50%, -50%);
+   animation: glowPulse 2.5s infinite;
+   z-index: 1;
+ }
+
+ .shadow {
+   position: absolute;
+   bottom: 8px;
+   left: 50%;
+   transform: translateX(-50%);
+   width: 60px;
+   height: 10px;
+   background: rgba(0, 0, 0, 0.15);
+   border-radius: 50%;
+   animation: shadowScale 4.5s ease-in-out forwards;
+   z-index: 0;
+ }
+
+ .wind-container {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   overflow: hidden;
+   z-index: 0;
+ }
+
+ .wind-line {
+   position: absolute;
+   width: 150px;
+   height: 3px;
+   background: linear-gradient(90deg, #00aaff, transparent);
+   opacity: 0.2;
+   animation: windMove 2s linear infinite;
+ }
+
+ .wind-line:nth-child(1) {
+   top: 20%;
+   left: -120px;
+   animation-delay: 0s;
+ }
+
+ .wind-line:nth-child(2) {
+   top: 40%;
+   left: -180px;
+   animation-delay: 0.5s;
+ }
+
+ .wind-line:nth-child(3) {
+   top: 60%;
+   left: -150px;
+   animation-delay: 1s;
+ }
+
+ .wind-line:nth-child(4) {
+   top: 80%;
+   left: -200px;
+   animation-delay: 1.5s;
+ }
+
+ /* ==== Animations ==== */
+ @keyframes flyTakeoff {
+   0% {
+     top: 80%;
+     transform: translateX(-50%) scale(1);
+     opacity: 1;
+   }
+
+   40% {
+     top: 50%;
+     transform: translateX(-50%) scale(1.05);
+   }
+
+   70% {
+     top: 20%;
+     transform: translateX(-50%) rotate(-5deg);
+   }
+
+   85% {
+     top: 18%;
+     transform: translateX(-50%) rotate(-10deg);
+     opacity: 1;
+   }
+
+   100% {
+     top: -20%;
+     transform: translateX(-50%) rotate(-25deg);
+     opacity: 0;
+   }
+ }
+
+ @keyframes planeSway {
+   0% {
+     transform: rotate(-3deg);
+   }
+
+   100% {
+     transform: rotate(3deg);
+   }
+ }
+
+ @keyframes glowPulse {
+
+   0%,
+   100% {
+     transform: translate(-50%, -50%) scale(0.95);
+     opacity: 0.3;
+   }
+
+   50% {
+     transform: translate(-50%, -50%) scale(1.05);
+     opacity: 0.6;
+   }
+ }
+
+ @keyframes shadowScale {
+   0% {
+     transform: translateX(-50%) scale(1);
+     opacity: 0.15;
+   }
+
+   100% {
+     transform: translateX(-50%) scale(0.3);
+     opacity: 0;
+   }
+ }
+
+ @keyframes windMove {
+   0% {
+     transform: translateX(0);
+   }
+
+   100% {
+     transform: translateX(120vw);
+   }
+ }
+
+ @keyframes nameFade {
+   0% {
+     opacity: 1;
+     transform: translateY(0);
+   }
+
+   80% {
+     opacity: 1;
+     transform: translateY(-10px);
+   }
+
+   100% {
+     opacity: 0;
+     transform: translateY(-50px);
+   }
+ }
+
+
+</style>
 <body>
-  <div class="company-logos">
-    <!-- First row -->
-    <div class="logos">
-      <div class="logos-slide">
-        <img src="img/Company logo 1.png" alt="Logo 1" />
-        <img src="img/Company logo 2.png" alt="Logo 2" />
-        <img src="img/Company logo 3.png" alt="Logo 3" />
-        <img src="img/Company logo 4.png" alt="Logo 4" />
-      </div>
-      <div class="logos-slide">
-        <img src="img/Company logo 1.png" alt="Logo 1" />
-        <img src="img/Company logo 2.png" alt="Logo 2" />
-        <img src="img/Company logo 3.png" alt="Logo 3" />
-        <img src="img/Company logo 4.png" alt="Logo 4" />
-      </div>
+     <!-- Preloader -->
+  <div class="preloader-container">
+    <!-- Wind effect -->
+    <div class="wind-container">
+      <div class="wind-line"></div>
+      <div class="wind-line"></div>
+      <div class="wind-line"></div>
+      <div class="wind-line"></div>
     </div>
 
-    <!-- Second row -->
-    <div class="logos">
-      <div class="logos-slide-reverse">
-        <img src="img/Company logo 5.png" alt="Logo 5" />
-        <img src="img/Company logo 6.png" alt="Logo 6" />
-        <img src="img/Company logo 7.png" alt="Logo 7" />
-        <img src="img/Company logo 8.png" alt="Logo 8" />
-      </div>
-      <div class="logos-slide-reverse">
-        <img src="img/Company logo 5.png" alt="Logo 5" />
-        <img src="img/Company logo 6.png" alt="Logo 6" />
-        <img src="img/Company logo 7.png" alt="Logo 7" />
-        <img src="img/Company logo 8.png" alt="Logo 8" />
-      </div>
+    <!-- Flying Plane -->
+    <div class="fly-wrapper">
+      <div class="glow-circle"></div>
+      <img src="img/fav icon.png" class="plane" alt="Plane" />
+      <div class="plane-name">Aspirant</div>
+      <div class="shadow"></div>
     </div>
   </div>
+
+  <div>
+    <h1>isygfiygeg</h1>
+  </div>
+    
 </body>
 </html>
