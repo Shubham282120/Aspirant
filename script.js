@@ -15,6 +15,15 @@ function toggleMenu(burger) {
 }
 
 
+// preeloader hide 
+ window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.querySelector('.preloader-container').classList.add('fade-out');
+        document.querySelector('.main-content').classList.add('visible');
+        document.body.style.overflow = 'auto'; // allow scroll after load
+      }, 4700); // after plane animation
+    });
+
 //slick slider setting
 $(document).ready(function () {
   $('.slider').slick({

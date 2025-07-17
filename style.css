@@ -9,73 +9,139 @@
 
  /* loader */
 
- .loader_bg {
-   position: fixed;
-   z-index: 999999;
-   background: #fff;
-   width: 100%;
-   height: 100%;
- }
 
- .loader_bg h1 {
-   /* position: absolute; */
-   padding-top: 300px;
-   text-align: center;
-   font-size: 40px;
-   letter-spacing: -1px;
-   color: #1CBBB6;
-   font-weight: 300;
- }
+ 
+    .preloader-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: white;
+      z-index: 9999;
+      opacity: 1;
+      transition: opacity 1.5s ease;
+    }
 
- .loader {
-   border: 0 soild transparent;
-   border-radius: 50%;
-   width: 150px;
-   height: 150px;
-   position: absolute;
-   top: calc(50vh - 75px);
-   left: calc(50vw - 75px);
- }
+    .preloader-container.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
 
- .loader:before,
- .loader:after {
-   content: '';
-   border: 1em solid #1CBBB6;
-   border-radius: 50%;
-   width: inherit;
-   height: inherit;
-   position: absolute;
-   top: 0;
-   left: 0;
-   animation: loader 2s linear infinite;
-   opacity: 0;
- }
+    .fly-wrapper {
+      position: absolute;
+      left: 50%;
+      top: 80%;
+      transform: translateX(-50%);
+      animation: flyTakeoff 4.5s ease-in-out forwards;
+      width: 140px;
+      height: 160px;
+      text-align: center;
+    }
 
- .loader:before {
-   animation-delay: .5s;
- }
+    .plane {
+      width: 80px;
+      position: relative;
+      z-index: 3;
+      animation: planeSway s ease-in-out infinite alternate;
+      filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
+    }
 
- @keyframes loader {
-   0% {
-     align-items: center;
-     transform: scale(0);
-     opacity: 0;
-   }
+    .plane-name {
+      margin-top: 8px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #1CBBB6;
+      letter-spacing: 1px;
+      animation: nameFade 4.5s ease-in-out forwards;
+    }
 
-   50% {
-     align-items: center;
-     opacity: 100;
-   }
+    .glow-circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 149, 255, 0.2) 0%, transparent 70%);
+      transform: translate(-50%, -50%);
+      animation: glowPulse 2.5s infinite;
+      z-index: 1;
+    }
 
-   100% {
-     align-items: center;
-     transform: scale(8);
-     opacity: 0;
-   }
- }
+    .shadow {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 10px;
+      background: rgba(0, 0, 0, 0.15);
+      border-radius: 50%;
+      animation: shadowScale 4.5s ease-in-out forwards;
+      z-index: 0;
+    }
 
+    .wind-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
 
+    .wind-line {
+      position: absolute;
+      width: 100px;
+      height: 2px;
+      background: linear-gradient(90deg, #00aaff, transparent);
+      opacity: 0.2;
+      animation: windMove 2s linear infinite;
+    }
 
+    .wind-line:nth-child(1) { top: 20%; left: -120px; animation-delay: 0s; }
+    .wind-line:nth-child(2) { top: 40%; left: -180px; animation-delay: 0.5s; }
+    .wind-line:nth-child(3) { top: 60%; left: -150px; animation-delay: 1s; }
+    .wind-line:nth-child(4) { top: 80%; left: -200px; animation-delay: 1.5s; }
+
+    /* ==== Animations ==== */
+    @keyframes flyTakeoff {
+      0%   { top: 80%; transform: translateX(-50%) scale(1); opacity: 1; }
+      40%  { top: 50%; transform: translateX(-50%) scale(1.05); }
+      70%  { top: 20%; transform: translateX(-50%) rotate(-5deg); }
+      85%  { top: 18%; transform: translateX(-50%) rotate(-10deg); opacity: 1; }
+      100% { top: -20%; transform: translateX(-50%) rotate(-25deg); opacity: 0; }
+    }
+
+    @keyframes planeSway {
+      0%   { transform: rotate(-3deg); }
+      100% { transform: rotate(3deg); }
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { transform: translate(-50%, -50%) scale(0.95); opacity: 0.3; }
+      50%      { transform: translate(-50%, -50%) scale(1.05); opacity: 0.6; }
+    }
+
+    @keyframes shadowScale {
+      0%   { transform: translateX(-50%) scale(1); opacity: 0.15; }
+      100% { transform: translateX(-50%) scale(0.3); opacity: 0; }
+    }
+
+    @keyframes windMove {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(120vw); }
+    }
+
+    @keyframes nameFade {
+      0%   { opacity: 1; transform: translateY(0); }
+      80%  { opacity: 1; transform: translateY(-10px); }
+      100% { opacity: 0; transform: translateY(-50px); }
+    }
+
+   
  /* section-1 */
 
  .Success {
@@ -1539,6 +1605,10 @@
 
       .testimonial-slider-box {
         height: 320px;
+      }
+      .testimonial-buttons{
+        justify-content: space-evenly;
+
       }
     }
 

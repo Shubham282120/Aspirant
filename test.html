@@ -3,303 +3,197 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Unique Testimonial Slider</title>
+  <title>Plane Preloader</title>
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      background: #fff;
+      overflow: hidden;
       font-family: 'Segoe UI', sans-serif;
     }
 
-    body {
-      background-color: #f4f4f4;
-    }
-
-    .testimonial-section {
-      background-color: #d1d1d17c;
-      padding: 60px 20px;
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 30px;
-    }
-
-    .testimonial-heading {
-      display: flex;
-      flex-direction: column;
-      max-width: 600px;
-      flex: 1 1 200px;
-    }
-
-    .testimonial-heading p {
-      color: #1CBBB6;
-      margin-bottom: 10px;
-      font-size: 18px;
-    }
-
-    .testimonial-heading h1 {
-      font-weight: 600;
-      font-size: 4rem;
-      line-height: 1.2;
-      margin-bottom: 15px;
-    }
-
-    .testimonial-heading h1 .highlight {
-      color: #1CBBB6;
-    }
-
-    .testimonial-heading h3 {
-      color: #7B7B7B;
-      font-weight: 500;
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-    }
-
-    .testimonial-buttons {
-      display: flex;
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    .testimonial-buttons button {
-      padding: 8px 15px;
-      border: none;
-      background-color: #1CBBB6;
-      color: white;
-      font-size: 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .testimonial-buttons button:hover {
-      background-color: #15928e;
-    }
-
-    .testimonial-slider-box {
-      background-color: #000;
-      width: 100%;
-      max-width: 500px;
-      height: 350px;
-      position: relative;
-      overflow: hidden;
-      border-radius: 10px;
-      flex: 1 1 300px;
-      color: #fff;
-    }
-
-    .testimonial-card {
-      position: absolute;
-      width: 100%;
-      height: 100%;
+    .preloader-container {
+      position: fixed;
       top: 0;
       left: 0;
-      padding: 20px;
+      width: 100%;
+      height: 100%;
+      background: white;
+      z-index: 9999;
+      opacity: 1;
+      transition: opacity 1s ease;
+    }
+
+    .preloader-container.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .fly-wrapper {
+      position: absolute;
+      left: 50%;
+      top: 80%;
+      transform: translateX(-50%);
+      animation: flyTakeoff 4.5s ease-in-out forwards;
+      width: 140px;
+      height: 160px;
       text-align: center;
-      display: none;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
     }
 
-    .testimonial-card.active {
-      display: flex;
+    .plane {
+      width: 80px;
+      position: relative;
+      z-index: 3;
+      animation: planeSway 1.2s ease-in-out infinite alternate;
+      filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
     }
 
-    .testimonial-card.animate-left {
-      animation: slideFromLeft 0.6s ease;
+    .plane-name {
+      margin-top: 8px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #1CBBB6;
+      letter-spacing: 1px;
+      animation: nameFade 4.5s ease-in-out forwards;
     }
 
-    .testimonial-card.animate-right {
-      animation: slideFromRight 0.6s ease;
+    .glow-circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 149, 255, 0.2) 0%, transparent 70%);
+      transform: translate(-50%, -50%);
+      animation: glowPulse 2.5s infinite;
+      z-index: 1;
     }
 
-    @keyframes slideFromRight {
-      0% {
-        transform: translateX(100%);
-        opacity: 0;
-      }
-      100% {
-        transform: translateX(0);
-        opacity: 1;
-      }
+    .shadow {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 10px;
+      background: rgba(0, 0, 0, 0.15);
+      border-radius: 50%;
+      animation: shadowScale 4.5s ease-in-out forwards;
+      z-index: 0;
     }
 
-    @keyframes slideFromLeft {
-      0% {
-        transform: translateX(-100%);
-        opacity: 0;
-      }
-      100% {
-        transform: translateX(0);
-        opacity: 1;
-      }
+    .wind-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
     }
 
-    .testimonial-card h1 {
-      margin-bottom: 10px;
-      font-size: 1.5rem;
-      color: #fff;
+    .wind-line {
+      position: absolute;
+      width: 100px;
+      height: 2px;
+      background: linear-gradient(90deg, #00aaff, transparent);
+      opacity: 0.2;
+      animation: windMove 2s linear infinite;
     }
 
-    .testimonial-card p {
-      font-size: 1rem;
-      color: #ccc;
+    .wind-line:nth-child(1) { top: 20%; left: -120px; animation-delay: 0s; }
+    .wind-line:nth-child(2) { top: 40%; left: -180px; animation-delay: 0.5s; }
+    .wind-line:nth-child(3) { top: 60%; left: -150px; animation-delay: 1s; }
+    .wind-line:nth-child(4) { top: 80%; left: -200px; animation-delay: 1.5s; }
+
+    /* ==== Animations ==== */
+    @keyframes flyTakeoff {
+      0%   { top: 80%; transform: translateX(-50%) scale(1); opacity: 1; }
+      40%  { top: 50%; transform: translateX(-50%) scale(1.05); }
+      70%  { top: 20%; transform: translateX(-50%) rotate(-5deg); }
+      85%  { top: 18%; transform: translateX(-50%) rotate(-10deg); opacity: 1; }
+      100% { top: -20%; transform: translateX(-50%) rotate(-25deg); opacity: 0; }
     }
 
-    .testimonial-rating-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 15px;
-      flex-wrap: wrap;
+    @keyframes planeSway {
+      0%   { transform: rotate(-3deg); }
+      100% { transform: rotate(3deg); }
     }
 
-    .testimonial-rating-wrapper img {
-      width: 30px;
-      height: 30px;
-      object-fit: contain;
+    @keyframes glowPulse {
+      0%, 100% { transform: translate(-50%, -50%) scale(0.95); opacity: 0.3; }
+      50%      { transform: translate(-50%, -50%) scale(1.05); opacity: 0.6; }
     }
 
-    .testimonial-rating {
-      font-size: 22px;
-      color: #FFD700;
-      letter-spacing: 2px;
+    @keyframes shadowScale {
+      0%   { transform: translateX(-50%) scale(1); opacity: 0.15; }
+      100% { transform: translateX(-50%) scale(0.3); opacity: 0; }
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      .testimonial-section {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .testimonial-heading h1 {
-        font-size: 2.2rem;
-      }
-
-      .testimonial-heading h3 {
-        font-size: 0.95rem;
-      }
-
-      .testimonial-slider-box {
-        height: 320px;
-      }
+    @keyframes windMove {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(120vw); }
     }
 
-    @media (max-width: 480px) {
-      .testimonial-heading h1 {
-        font-size: 1.8rem;
-      }
+    @keyframes nameFade {
+      0%   { opacity: 1; transform: translateY(0); }
+      80%  { opacity: 1; transform: translateY(-10px); }
+      100% { opacity: 0; transform: translateY(-50px); }
+    }
 
-      .testimonial-heading h3 {
-        font-size: 0.85rem;
-      }
+    /* ==== Main Content Styling ==== */
+    .main-content {
+      opacity: 0;
+      transition: opacity 1s ease;
+      padding: 40px;
+    }
 
-      .testimonial-slider-box {
-        height: 280px;
-      }
-
-      .testimonial-rating-wrapper {
-        flex-direction: column;
-        gap: 5px;
-      }
-
-      .testimonial-rating {
-        font-size: 20px;
-      }
-
-      .testimonial-rating-wrapper img {
-        width: 25px;
-        height: 25px;
-      }
+    .main-content.visible {
+      opacity: 1;
     }
   </style>
 </head>
 <body>
 
-  <div class="testimonial-section">
-    <div class="testimonial-heading">
-      <p>------ Client Testimonial ------</p>
-      <h1>
-        Excellence in Every <br>
-        Where <span class="highlight">Ideas</span>
-      </h1>
-      <h3>
-        A creative agency speciali providing innovative and unique <br>
-        solutions to businesses build
-      </h3>
-      <div class="testimonial-buttons">
-        <button onclick="prevTestimonial()">←</button>
-        <button onclick="nextTestimonial()">→</button>
-      </div>
+  <!-- Preloader -->
+  <div class="preloader-container">
+    <div class="wind-container">
+      <div class="wind-line"></div>
+      <div class="wind-line"></div>
+      <div class="wind-line"></div>
+      <div class="wind-line"></div>
     </div>
 
-    <div class="testimonial-slider-box">
-      <div class="testimonial-card active">
-        <h1>Rajeev Shukla</h1>
-        <p>A creative agency providing an innovative and unique solution to help build brands.</p>
-        <div class="testimonial-rating-wrapper">
-          <img src="img/quort.png" alt="quote icon" />
-          <div class="testimonial-rating">★★★★☆</div>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <h1>Shubham Vishwakarma</h1>
-        <p>Helping brands grow with creative, innovative and effective design solutions for modern challenges.</p>
-        <div class="testimonial-rating-wrapper">
-          <img src="img/quort.png" alt="quote icon" />
-          <div class="testimonial-rating">★★★★★</div>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <h1>Vikas Yadav</h1>
-        <p>We make design easy for companies who want real results. Get design that works.</p>
-        <div class="testimonial-rating-wrapper">
-          <img src="img/quort.png" alt="quote icon" />
-          <div class="testimonial-rating">★★★★☆</div>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <h1>Rushikesh Mule</h1>
-        <p>Designing next-level experiences that help companies connect, inspire and grow.</p>
-        <div class="testimonial-rating-wrapper">
-          <img src="img/quort.png" alt="quote icon" />
-          <div class="testimonial-rating">★★★★★</div>
-        </div>
-      </div>
+    <div class="fly-wrapper">
+      <div class="glow-circle"></div>
+      <img src="img/fav icon.png" class="plane" alt="Plane" />
+      <div class="plane-name">Aspirant</div>
+      <div class="shadow"></div>
     </div>
   </div>
 
+  <!-- Main Website Content -->
+  <div class="main-content">
+    <h1>Welcome to Aspirant</h1>
+    <p>This is your main website content that appears after the plane takes off.</p>
+    <p>You can place your homepage, hero section, or anything here.</p>
+  </div>
+
   <script>
-    let currentTestimonial = 0;
-    const testimonialCards = document.querySelectorAll('.testimonial-card');
-
-    function showTestimonial(index, direction) {
-      testimonialCards.forEach((card) => {
-        card.classList.remove('active', 'animate-left', 'animate-right');
-      });
-
-      const newCard = testimonialCards[index];
-      newCard.classList.add('active');
-      newCard.classList.add(direction === 'left' ? 'animate-left' : 'animate-right');
-    }
-
-    function nextTestimonial() {
-      currentTestimonial = (currentTestimonial + 1) % testimonialCards.length;
-      showTestimonial(currentTestimonial, 'right');
-    }
-
-    function prevTestimonial() {
-      currentTestimonial = (currentTestimonial - 1 + testimonialCards.length) % testimonialCards.length;
-      showTestimonial(currentTestimonial, 'left');
-    }
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.querySelector('.preloader-container').classList.add('fade-out');
+        document.querySelector('.main-content').classList.add('visible');
+        document.body.style.overflow = 'auto'; // allow scroll after load
+      }, 4700); // after plane animation
+    });
   </script>
 
 </body>
