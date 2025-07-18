@@ -21,7 +21,7 @@ function toggleMenu(burger) {
         document.querySelector('.preloader-container').classList.add('fade-out');
         document.querySelector('.main-content').classList.add('visible');
         document.body.style.overflow = 'auto'; // allow scroll after load
-      }, 2500); // after plane animation
+      }, 2200); // after plane animation
     });
 
 //slick slider setting
