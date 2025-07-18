@@ -43,7 +43,7 @@ const counters = document.querySelectorAll(".col-numbers h1");
 counters.forEach(counter => {
   const updateCount = () => {
     const target = +counter.innerText.replace(/\D/g, '');
-    const speed = 150 // lower is faster
+    const speed = 450 // lower is faster
     const increment = target / speed;
     let count = 0;
 
@@ -63,13 +63,15 @@ counters.forEach(counter => {
   updateCount();
 });
 
-// type writer animation section-3
+
+
+// type writer animation section-3 texts
 
 const element = document.querySelector(".typewriter-text");
 const htmlString = `Unleashing Creativity The <br> Unleashing <span class="Success">Success</span>`;
 let hasTyped = false; // Prevent multiple runs
 
-// Typewriter function
+// Typewriter function configuration
 function startTypewriter() {
   let i = 0;
   let isTag = false;
@@ -93,8 +95,7 @@ function startTypewriter() {
 
   type();
 }
-
-// Observer to detect .section-3 coming into view
+// Observer to detect .section-3 typed
 
 const observer = new IntersectionObserver(
   (entries) => {
@@ -110,7 +111,7 @@ const observer = new IntersectionObserver(
   }
 );
 
-// Start observing section-3
+// Start printing section-3
 observer.observe(document.querySelector(".section-3"));
 
 // team-slider
