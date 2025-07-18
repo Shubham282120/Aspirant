@@ -1,244 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Overlay Projects</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: gainsboro;
+      line-height: 1.6;
+    }
+
+    .Success {
+      color: #1CBBB6;
+    }
+
+    .section-5 {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-5-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-5-title p {
+      font-size: 17px;
+      color: #1CBBB6;
+    }
+
+    .section-5-title h1 {
+      font-size: 48px;
+      font-weight: 600;
+    }
+
+    .overlay-container {
+      width: 100%;
+      max-width: 100%;
+      flex: 1 1 300px;
+      margin: 10px;
+      border-radius: 20px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .overlay-wrapper {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+    }
+
+    .overlay-wrapper img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 20px;
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: -100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      font-size: 18px;
+      padding: 20px;
+      transition: bottom 0.4s ease-in-out;
+      border-radius: 20px;
+    }
+
+    .overlay h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .overlay p {
+      font-size: 15px;
+      color: #d1d1d1;
+    }
+
+    .overlay-wrapper:hover .overlay {
+      bottom: 0;
+    }
+
+    .section-5-img-1,
+    .section-5-img-2 {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    @media (max-width: 1024px) {
+      .section-5-title h1 {
+        font-size: 36px;
+      }
+
+      .overlay h1 {
+        font-size: 22px;
+      }
+
+      .overlay p {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section-5-title h1 {
+        font-size: 30px;
+      }
+
+      .overlay {
+        font-size: 16px;
+        padding: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .section-5-title h1 {
+        font-size: 24px;
+      }
+
+      .overlay h1 {
+        font-size: 20px;
+      }
+
+      .overlay p {
+        font-size: 13px;
+      }
+
+      .overlay {
+        padding: 10px;
+      }
+    }
+  </style>
 </head>
-<style>
-    .preloader-container {
-   position: fixed;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-   background: white;
-   z-index: 9999;
-   opacity: 1;
-   transition: opacity 1.5s ease;
- }
 
- .preloader-container.fade-out {
-   opacity: 0;
-   pointer-events: none;
- }
-
- .fly-wrapper {
-   position: absolute;
-   left: 50%;
-   top: 80%;
-   transform: translateX(-50%);
-   animation: flyTakeoff 4.5s ease-in-out forwards;
-   width: 140px;
-   height: 160px;
-   text-align: center;
- }
-
- .plane {
-   width: 100px;
-   position: relative;
-   z-index: 3;
-   animation: planeSway s ease-in-out infinite alternate;
-   filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
- }
-
- .plane-name {
-   margin-top: 8px;
-   font-size: 20px;
-   font-weight: 600;
-   color: #1CBBB6;
-   letter-spacing: 1px;
-   animation: nameFade 4.5s ease-in-out forwards;
- }
-
- .glow-circle {
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   width: 120px;
-   height: 120px;
-   border-radius: 50%;
-   background: radial-gradient(circle, rgba(0, 149, 255, 0.2) 0%, transparent 70%);
-   transform: translate(-50%, -50%);
-   animation: glowPulse 2.5s infinite;
-   z-index: 1;
- }
-
- .shadow {
-   position: absolute;
-   bottom: 8px;
-   left: 50%;
-   transform: translateX(-50%);
-   width: 60px;
-   height: 10px;
-   background: rgba(0, 0, 0, 0.15);
-   border-radius: 50%;
-   animation: shadowScale 4.5s ease-in-out forwards;
-   z-index: 0;
- }
-
- .wind-container {
-   position: absolute;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-   overflow: hidden;
-   z-index: 0;
- }
-
- .wind-line {
-   position: absolute;
-   width: 150px;
-   height: 3px;
-   background: linear-gradient(90deg, #00aaff, transparent);
-   opacity: 0.2;
-   animation: windMove 2s linear infinite;
- }
-
- .wind-line:nth-child(1) {
-   top: 20%;
-   left: -120px;
-   animation-delay: 0s;
- }
-
- .wind-line:nth-child(2) {
-   top: 40%;
-   left: -180px;
-   animation-delay: 0.5s;
- }
-
- .wind-line:nth-child(3) {
-   top: 60%;
-   left: -150px;
-   animation-delay: 1s;
- }
-
- .wind-line:nth-child(4) {
-   top: 80%;
-   left: -200px;
-   animation-delay: 1.5s;
- }
-
- /* ==== Animations ==== */
- @keyframes flyTakeoff {
-   0% {
-     top: 80%;
-     transform: translateX(-50%) scale(1);
-     opacity: 1;
-   }
-
-   40% {
-     top: 50%;
-     transform: translateX(-50%) scale(1.05);
-   }
-
-   70% {
-     top: 20%;
-     transform: translateX(-50%) rotate(-5deg);
-   }
-
-   85% {
-     top: 18%;
-     transform: translateX(-50%) rotate(-10deg);
-     opacity: 1;
-   }
-
-   100% {
-     top: -20%;
-     transform: translateX(-50%) rotate(-25deg);
-     opacity: 0;
-   }
- }
-
- @keyframes planeSway {
-   0% {
-     transform: rotate(-3deg);
-   }
-
-   100% {
-     transform: rotate(3deg);
-   }
- }
-
- @keyframes glowPulse {
-
-   0%,
-   100% {
-     transform: translate(-50%, -50%) scale(0.95);
-     opacity: 0.3;
-   }
-
-   50% {
-     transform: translate(-50%, -50%) scale(1.05);
-     opacity: 0.6;
-   }
- }
-
- @keyframes shadowScale {
-   0% {
-     transform: translateX(-50%) scale(1);
-     opacity: 0.15;
-   }
-
-   100% {
-     transform: translateX(-50%) scale(0.3);
-     opacity: 0;
-   }
- }
-
- @keyframes windMove {
-   0% {
-     transform: translateX(0);
-   }
-
-   100% {
-     transform: translateX(120vw);
-   }
- }
-
- @keyframes nameFade {
-   0% {
-     opacity: 1;
-     transform: translateY(0);
-   }
-
-   80% {
-     opacity: 1;
-     transform: translateY(-10px);
-   }
-
-   100% {
-     opacity: 0;
-     transform: translateY(-50px);
-   }
- }
-
-
-</style>
 <body>
-     <!-- Preloader -->
-  <div class="preloader-container">
-    <!-- Wind effect -->
-    <div class="wind-container">
-      <div class="wind-line"></div>
-      <div class="wind-line"></div>
-      <div class="wind-line"></div>
-      <div class="wind-line"></div>
+  <section class="section-5">
+    <div class="section-5-title">
+      <p>------ Latest Project -----</p>
+      <h1>Where Ideas Take Flight <br /><span class="Success">Artificial Intelligence</span></h1>
     </div>
 
-    <!-- Flying Plane -->
-    <div class="fly-wrapper">
-      <div class="glow-circle"></div>
-      <img src="img/fav icon.png" class="plane" alt="Plane" />
-      <div class="plane-name">Aspirant</div>
-      <div class="shadow"></div>
+    <div class="section-5-img-1">
+      <div class="overlay-container">
+        <div class="overlay-wrapper">
+          <img src="img/latest-project-1.png" alt="Project 1" />
+          <div class="overlay">
+            <h1>Igniting Creative Success</h1>
+            <p>At Aspirant Solution, we believe creativity fuels transformation. We deliver digital solutions that
+              spark innovation and elevate brand value through bold ideas, design, and technology.</p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div>
-    <h1>isygfiygeg</h1>
-  </div>
-    
+    <div class="section-5-img-2">
+      <div class="overlay-container">
+        <div class="overlay-wrapper">
+          <img src="img/latest-project-2.png" alt="Project 2" />
+          <div class="overlay">
+            <h1>Designing Tomorrow Today</h1>
+            <p>We don’t just follow trends — we shape the future. Our solutions are designed to scale, adapt, and lead
+              in a rapidly evolving digital world.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="overlay-container">
+        <div class="overlay-wrapper">
+          <img src="img/latest-project-3.png" alt="Project 3" />
+          <div class="overlay">
+            <h1>Elevate Your Brand Experience</h1>
+            <p>We create immersive digital experiences that connect emotionally and leave lasting impressions across
+              every touchpoint of your brand.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </body>
+
 </html>
