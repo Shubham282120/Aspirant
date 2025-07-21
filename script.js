@@ -8,11 +8,11 @@ function nextSlide() {
 }
 
 //   navbar burger menu
-function toggleMenu(burger) {
-  const navLinks = document.getElementById("nav-links");
-  navLinks.classList.toggle("active");
-  burger.classList.toggle("active");
-}
+   function toggleMenu(burger) {
+      const navLinks = document.getElementById("nav-links");
+      navLinks.classList.toggle("active");
+      burger.classList.toggle("active");
+    }
 
 
 // preeloader hide 
@@ -116,31 +116,34 @@ observer.observe(document.querySelector(".section-3"));
 
 // team-slider
 
-$(document).ready(function () {
-  $('.team-slider').slick({
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    arrows: true,
-    autoplay: true,
-    autoplaySpeed: 1000,
-    infinite: true,
-    responsive: [
-      {
-        breakpoint: 992,
-        settings: {
-          slidesToShow: 2
-        }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1
-        }
-      }
-    ]
-  });
-});
-
+ $(document).ready(function () {
+      $('.team-slider').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        arrows: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        infinite: true,
+        centerMode: true,
+        centerPadding: '20px',
+        responsive: [
+          {
+            breakpoint: 992,
+            settings: {
+              slidesToShow: 2,
+              centerPadding: '15px'
+            }
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 1,
+              centerPadding: '10px'
+            }
+          }
+        ]
+      });
+    });
 
 // loader
 setTimeout(function () {
@@ -149,41 +152,46 @@ setTimeout(function () {
 
 
 // section-7 FAQs toggle
-const faqs = document.querySelectorAll('.faqs');
-faqs.forEach(faq => {
-  faq.addEventListener('click', () => {
-    faq.classList.toggle('active');
-    const answer = faq.querySelector('.answer');
-    if (faq.classList.contains('active')) {
-      answer.style.maxHeight = answer.scrollHeight + 'px';
-    } else {
-      answer.style.maxHeight = '0';
-    }
-  });
-});
-
+    const faqs = document.querySelectorAll('.faqs');
+    faqs.forEach(faq => {
+      faq.addEventListener('click', () => {
+        faqs.forEach(item => {
+          if (item !== faq) {
+            item.classList.remove('active');
+            item.querySelector('.answer').style.maxHeight = '0';
+          }
+        });
+        faq.classList.toggle('active');
+        const answer = faq.querySelector('.answer');
+        if (faq.classList.contains('active')) {
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        } else {
+          answer.style.maxHeight = '0';
+        }
+      });
+    });
+ 
 
 
 // testamonials slider
-let currentTestimonial = 0;
-const testimonialCards = document.querySelectorAll('.testimonial-card');
+ let currentTestimonial = 0;
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
 
-function showTestimonial(index, direction) {
-  testimonialCards.forEach((card) => {
-    card.classList.remove('active', 'animate-left', 'animate-right');
-  });
+    function showTestimonial(index, direction) {
+      testimonialCards.forEach((card) => {
+        card.classList.remove('active', 'animate-left', 'animate-right');
+      });
 
-  const newCard = testimonialCards[index];
-  newCard.classList.add('active');
-  newCard.classList.add(direction === 'left' ? 'animate-left' : 'animate-right');
-}
+      const newCard = testimonialCards[index];
+      newCard.classList.add('active', direction === 'left' ? 'animate-left' : 'animate-right');
+    }
 
-function nextTestimonial() {
-  currentTestimonial = (currentTestimonial + 1) % testimonialCards.length;
-  showTestimonial(currentTestimonial, 'right');
-}
+    function nextTestimonial() {
+      currentTestimonial = (currentTestimonial + 1) % testimonialCards.length;
+      showTestimonial(currentTestimonial, 'right');
+    }
 
-function prevTestimonial() {
-  currentTestimonial = (currentTestimonial - 1 + testimonialCards.length) % testimonialCards.length;
-  showTestimonial(currentTestimonial, 'left');
-}
+    function prevTestimonial() {
+      currentTestimonial = (currentTestimonial - 1 + testimonialCards.length) % testimonialCards.length;
+      showTestimonial(currentTestimonial, 'left');
+    }
