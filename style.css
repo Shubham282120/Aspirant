@@ -1046,6 +1046,7 @@
 
    .about-points p {
      padding-left: 0;
+     text-align: left;
    }
  }
 
