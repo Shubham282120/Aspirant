@@ -412,8 +412,7 @@
         }
 
         .accordion-item.active {
-            border-color: #1cbbb6;
-            background-color: #f6fcff;
+            background-color: #fff;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
         }
 
@@ -458,7 +457,7 @@
         }
 
         .accordion-item.active .accordion-body {
-            max-height: 200px; /* A value larger than the content to allow transition */
+            max-height: 200px;
             opacity: 1;
             padding: 0 20px 20px 20px;
         }
@@ -469,7 +468,6 @@
             color: #667085;
         }
 
-        /* Right Section: Images and Badge */
         .faq-images {
             flex: 1;
             display: flex;
