@@ -24,6 +24,29 @@ function nextSlide() {
       }, 2200); // after plane animation
     });
 
+     // service page Fnq
+
+     document.addEventListener('DOMContentLoaded', () => {
+            const items = document.querySelectorAll('.accordion-item');
+
+            items.forEach(item => {
+                const header = item.querySelector('.accordion-header');
+                header.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+
+                    // Close all items
+                    items.forEach(otherItem => {
+                        otherItem.classList.remove('active');
+                    });
+                    
+                    // Toggle the clicked item if it wasn't already active
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+        });
+
 //slick slider setting
 $(document).ready(function () {
   $('.slider').slick({
@@ -195,3 +218,5 @@ setTimeout(function () {
       currentTestimonial = (currentTestimonial - 1 + testimonialCards.length) % testimonialCards.length;
       showTestimonial(currentTestimonial, 'left');
     }
+
+   
