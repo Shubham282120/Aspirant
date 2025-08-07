@@ -122,92 +122,7 @@
       .burger-menu.active div:nth-child(3) {
           transform: rotate(-45deg) translate(6px, -6px);
       }
-
-      /* Hero Section */
-      .section-1-header {
-          text-align: center;
-          padding: 50px 20px 0px 20px;
-      }
-
-      .section-1-header .page-title {
-          color: #fff;
-          font-weight: 600;
-          font-size: 50px;
-          margin-bottom: 20px;
-      }
-
-      .section-1-header .breadcrumb {
-          color: #fff;
-          font-weight: 600;
-          font-size: 18px;
-      }
-
-      .section-1-header .breadcrumb a {
-          color: #fff;
-      }
-
-      .section-1-header img {
-          width: 70%;
-          max-width: 800px;
-          margin-top: 40px;
-      }
-
-      /* Services Section */
-      .section-2 {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          gap: 20px;
-          padding: 50px 20px;
-          background-color: #fff;
-      }
-
-      .service-box {
-          color: #232323;
-          width: 100%;
-          max-width: 350px;
-          min-height: 290px;
-          border-width: 1px 1px 0px 0px;
-          border-style: solid;
-          border-color: #D1D1D1;
-          border-top-right-radius: 20px;
-          padding: 30px;
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-      }
-
-      .service-box:hover {
-          transform: translateY(-10px);
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-      }
-
-      .service-box .box-title {
-          font-size: 24px;
-          font-weight: 700;
-          line-height: 1.2;
-          margin-bottom: 15px;
-      }
-
-      .service-box .box-title span {
-          font-size: 24px;
-      }
-
-      .service-box .service-description {
-          font-size: 16px;
-          color: #666;
-          line-height: 1.5;
-          margin-bottom: 20px;
-          flex-grow: 1;
-      }
-
-      .service-box .service-plus-text {
-          font-size: 16px;
-          font-weight: 600;
-          margin-top: 10px;
-      }
-
+      
       /* Responsive Media Queries */
       @media (max-width: 992px) {
           .nav-container {
@@ -334,6 +249,92 @@
               font-size: 20px;
           }
       }
+
+      /* Hero Section */
+      .section-1-header {
+          text-align: center;
+          padding: 50px 20px 0px 20px;
+      }
+
+      .section-1-header .page-title {
+          color: #fff;
+          font-weight: 600;
+          font-size: 50px;
+          margin-bottom: 20px;
+      }
+
+      .section-1-header .breadcrumb {
+          color: #fff;
+          font-weight: 600;
+          font-size: 18px;
+      }
+
+      .section-1-header .breadcrumb a {
+          color: #fff;
+      }
+
+      .section-1-header img {
+          width: 70%;
+          max-width: 800px;
+          margin-top: 40px;
+      }
+
+      /* Services Section */
+      .section-2 {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 20px;
+          padding: 50px 20px;
+          background-color: #fff;
+      }
+
+      .service-box {
+          color: #232323;
+          width: 100%;
+          max-width: 350px;
+          min-height: 290px;
+          border-width: 1px 1px 0px 0px;
+          border-style: solid;
+          border-color: #D1D1D1;
+          border-top-right-radius: 20px;
+          padding: 30px;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+      }
+
+      .service-box:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .service-box .box-title {
+          font-size: 24px;
+          font-weight: 700;
+          line-height: 1.2;
+          margin-bottom: 15px;
+      }
+
+      .service-box .box-title span {
+          font-size: 24px;
+      }
+
+      .service-box .service-description {
+          font-size: 16px;
+          color: #666;
+          line-height: 1.5;
+          margin-bottom: 20px;
+          flex-grow: 1;
+      }
+
+      .service-box .service-plus-text {
+          font-size: 16px;
+          font-weight: 600;
+          margin-top: 10px;
+      }
+
 
 
        /* FAQ Container */
