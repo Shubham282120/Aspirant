@@ -123,132 +123,132 @@
         transform: rotate(-45deg) translate(6px, -6px);
       }
 
-      
+
       /* Responsive Media Queries */
       @media (max-width: 992px) {
-          .nav-container {
-              padding: 10px 20px;
-          }
+        .nav-container {
+          padding: 10px 20px;
+        }
 
-          .nav-links {
-              gap: 20px;
-          }
+        .nav-links {
+          gap: 20px;
+        }
 
-          .get-in-touch-btn {
-              padding: 12px 20px;
-          }
+        .get-in-touch-btn {
+          padding: 12px 20px;
+        }
       }
 
       @media (max-width: 768px) {
-          .nav-links {
-              flex-direction: column;
-              align-items: center;
-              justify-content: center;
-              position: absolute;
-              top: 80px;
-              left: 50%;
-              transform: translateX(-50%);
-              width: 90%;
-              max-width: 400px;
-              background-color: #232323;
-              border-radius: 20px;
-              padding: 30px 20px;
-              gap: 25px;
-              box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-              z-index: 998;
-              opacity: 0;
-              transform: translate(-50%, -20px);
-              pointer-events: none;
-              transition: all 0.4s ease;
-          }
+        .nav-links {
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          top: 80px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 90%;
+          max-width: 400px;
+          background-color: #232323;
+          border-radius: 20px;
+          padding: 30px 20px;
+          gap: 25px;
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+          z-index: 998;
+          opacity: 0;
+          transform: translate(-50%, -20px);
+          pointer-events: none;
+          transition: all 0.4s ease;
+        }
 
-          .nav-links.active {
-              opacity: 1;
-              transform: translate(-50%, 0);
-              pointer-events: auto;
-          }
+        .nav-links.active {
+          opacity: 1;
+          transform: translate(-50%, 0);
+          pointer-events: auto;
+        }
 
-          .nav-links li {
-              opacity: 0;
-              transform: translateY(20px);
-              transition: opacity 0.4s ease, transform 0.4s ease;
-          }
+        .nav-links li {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 0.4s ease, transform 0.4s ease;
+        }
 
-          .nav-links.active li {
-              opacity: 1;
-              transform: translateY(0);
-          }
+        .nav-links.active li {
+          opacity: 1;
+          transform: translateY(0);
+        }
 
-          .nav-links.active li:nth-child(1) {
-              transition-delay: 0.1s;
-          }
+        .nav-links.active li:nth-child(1) {
+          transition-delay: 0.1s;
+        }
 
-          .nav-links.active li:nth-child(2) {
-              transition-delay: 0.2s;
-          }
+        .nav-links.active li:nth-child(2) {
+          transition-delay: 0.2s;
+        }
 
-          .nav-links.active li:nth-child(3) {
-              transition-delay: 0.3s;
-          }
+        .nav-links.active li:nth-child(3) {
+          transition-delay: 0.3s;
+        }
 
-          .nav-links.active li:nth-child(4) {
-              transition-delay: 0.4s;
-          }
+        .nav-links.active li:nth-child(4) {
+          transition-delay: 0.4s;
+        }
 
-          .nav-links.active li:nth-child(5) {
-              transition-delay: 0.5s;
-          }
+        .nav-links.active li:nth-child(5) {
+          transition-delay: 0.5s;
+        }
 
-          .burger-menu {
-              display: flex;
-          }
+        .burger-menu {
+          display: flex;
+        }
 
-          .get-in-touch-btn {
-              display: none;
-          }
+        .get-in-touch-btn {
+          display: none;
+        }
 
-          .section-1-header .page-title {
-              font-size: 40px;
-          }
+        .section-1-header .page-title {
+          font-size: 40px;
+        }
 
-          .section-1-header .breadcrumb {
-              font-size: 16px;
-          }
+        .section-1-header .breadcrumb {
+          font-size: 16px;
+        }
       }
 
       @media (max-width: 480px) {
-          .nav-container {
-              padding: 8px 15px;
-          }
+        .nav-container {
+          padding: 8px 15px;
+        }
 
-          .logo img {
-              height: 35px;
-          }
+        .logo img {
+          height: 35px;
+        }
 
-          .nav-links {
-              top: 70px;
-              padding: 20px;
-          }
+        .nav-links {
+          top: 70px;
+          padding: 20px;
+        }
 
-          .nav-links li a {
-              font-size: 14px;
-          }
+        .nav-links li a {
+          font-size: 14px;
+        }
 
-          .section-1-header .page-title {
-              font-size: 30px;
-          }
+        .section-1-header .page-title {
+          font-size: 30px;
+        }
 
-          .section-1-header .breadcrumb {
-              font-size: 14px;
-          }
+        .section-1-header .breadcrumb {
+          font-size: 14px;
+        }
 
-          .service-box {
-              padding: 20px;
-          }
+        .service-box {
+          padding: 20px;
+        }
 
-          .service-box .box-title {
-              font-size: 20px;
-          }
+        .service-box .box-title {
+          font-size: 20px;
+        }
       }
 
       /* Hero Section */
@@ -281,7 +281,7 @@
       }
 
 
-     
+
       /* about main  */
       .container {
         max-width: 1200px;
@@ -457,6 +457,7 @@
         .vision-mission-text {
           max-width: 100%;
           text-align: center;
+          flex: 1;
         }
 
         .feature-list {
@@ -471,6 +472,188 @@
 
         .read-more-btn {
           margin: 10px auto 0;
+        }
+      }
+
+      /* why choose us  */
+
+      .why-choose-us {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin: 80px 0;
+      }
+
+      .main-container {
+        width: 100%;
+        max-width: 1200px;
+        text-align: center;
+      }
+
+      .header {
+        margin-bottom: 60px;
+      }
+
+      .header-subtitle {
+        font-size: 0.75rem;
+        letter-spacing: 0.1em;
+        color: #2dd4bf;
+        font-weight: 500;
+        margin-bottom: 10px;
+      }
+
+      .header-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #1f2937;
+        line-height: 1.2;
+      }
+
+      .header-title .brand-highlight {
+        color: #2dd4bf;
+      }
+
+      .content-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      /* The container for the dynamic content boxes */
+      .content-box-container {
+        position: relative;
+        width: 410px;
+        height: 510px;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+
+      .content-box {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      }
+
+      .content-box-overlay {
+        position: absolute;
+        inset: 0;
+        background: #00000049;
+      }
+
+      .content-box-text {
+        position: absolute;
+        bottom: 40px;
+        left: 40px;
+        right: 40px;
+        color: white;
+        text-align: left;
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      .content-box-number {
+        font-size: 3rem;
+        font-weight: 900;
+        margin-bottom: 1rem;
+      }
+
+      .content-box-description {
+        font-size: 1.125rem;
+        line-height: 1.6;
+      }
+
+      /* The CSS that controls which content box is visible */
+      /* It also makes the text visible with a transition */
+      #option-1:checked~.content-box-container .content-box:nth-child(1),
+      #option-2:checked~.content-box-container .content-box:nth-child(2),
+      #option-3:checked~.content-box-container .content-box:nth-child(3),
+      #option-4:checked~.content-box-container .content-box:nth-child(4),
+      #option-5:checked~.content-box-container .content-box:nth-child(5) {
+        opacity: 1;
+      }
+
+      #option-1:checked~.content-box-container .content-box:nth-child(1) .content-box-text,
+      #option-2:checked~.content-box-container .content-box:nth-child(2) .content-box-text,
+      #option-3:checked~.content-box-container .content-box:nth-child(3) .content-box-text,
+      #option-4:checked~.content-box-container .content-box:nth-child(4) .content-box-text,
+      #option-5:checked~.content-box-container .content-box:nth-child(5) .content-box-text {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* The navigation buttons container */
+      .navigation-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 40px;
+        width: 100%;
+        gap: 15px;
+      }
+
+      /* Styles for the radio buttons and their labels */
+      .rotated-text {
+        writing-mode: vertical-lr;
+        transform: rotate(180deg);
+        white-space: nowrap;
+        cursor: pointer;
+        color: #7B7B7B;
+        font-weight: 500;
+        letter-spacing: 0.025em;
+        font-size: 1.25rem;
+        padding: 10px 15px;
+        transition: all 0.3s ease-in-out;
+        border-left: 2px solid transparent;
+        display: block;
+      }
+
+      /* Hide the actual radio buttons */
+      .radio-input {
+        display: none;
+      }
+
+      /* The CSS that controls which navigation button is active */
+      #option-1:checked~.navigation-row label[for="option-1"],
+      #option-2:checked~.navigation-row label[for="option-2"],
+      #option-3:checked~.navigation-row label[for="option-3"],
+      #option-4:checked~.navigation-row label[for="option-4"],
+      #option-5:checked~.navigation-row label[for="option-5"] {
+        color: #232323;
+        font-weight: 800;
+        border-left-color: #2dd4bf;
+      }
+
+      @media (min-width: 768px) {
+        .content-section {
+          flex-direction: row;
+          gap: 40px;
+        }
+
+        .content-box-container {
+          width: 410px;
+          height: 510px;
+        }
+
+        .navigation-row {
+          width: 40%;
+          flex-direction: row;
+          justify-content: space-around;
+          align-items: baseline;
+        }
+
+        .rotated-text {
+          text-align: left;
+          padding: 0 10px;
+          font-weight: 700;
+
         }
       }
 

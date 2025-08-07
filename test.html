@@ -1,221 +1,885 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Company Profile</title>
-    <style>
-        /* General styles and font */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    <title>Document</title>
+</head>
+<style>
+          * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        font-family: 'Outfit', sans-serif;
+      }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+      /* Navbar */
+      .service-link {
+        color: #17a8a3;
+      }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f7f7f7;
-            color: #333;
-            line-height: 1.6;
-        }
+      .section-1 {
+        background: #232323;
+      }
 
-        /* Utility classes */
+      .Success {
+        color: #1CBBB6;
+      }
+
+      .nav-bar {
+        position: sticky;
+        top: 0;
+        padding: 15px 0;
+        z-index: 999;
+      }
+
+      .nav-container {
+        background: #232323;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .logo img {
+        height: 45px;
+        margin-top: 6px;
+        transition: transform 0.3s ease;
+      }
+
+      .logo img:hover {
+        transform: scale(1.05);
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        list-style: none;
+        margin: 0;
+      }
+
+      .nav-links li a {
+        color: #FFFFFF;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        transition: color 0.3s ease, transform 0.2s ease;
+      }
+
+      .nav-links li a:hover {
+        color: #1CBBB6;
+        transform: translateY(-2px);
+      }
+
+      .get-in-touch-btn {
+        background-color: #1CBBB6;
+        border: none;
+        border-radius: 99px;
+        padding: 15px 25px;
+        font-weight: 600;
+        font-size: 15px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        color: white;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .get-in-touch-btn:hover {
+        background-color: #17a8a3;
+        transform: translateY(-2px);
+      }
+
+      .get-in-touch-btn a {
+        color: white;
+      }
+
+      .burger-menu {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .burger-menu div {
+        width: 28px;
+        height: 3px;
+        background-color: #ffffff;
+        border-radius: 2px;
+        transition: all 0.4s ease-in-out;
+      }
+
+      .burger-menu.active div:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+      }
+
+      .burger-menu.active div:nth-child(2) {
+        opacity: 0;
+        transform: translateX(-10px);
+      }
+
+      .burger-menu.active div:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+
+      
+      /* Responsive Media Queries */
+      @media (max-width: 992px) {
+          .nav-container {
+              padding: 10px 20px;
+          }
+
+          .nav-links {
+              gap: 20px;
+          }
+
+          .get-in-touch-btn {
+              padding: 12px 20px;
+          }
+      }
+
+      @media (max-width: 768px) {
+          .nav-links {
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              position: absolute;
+              top: 80px;
+              left: 50%;
+              transform: translateX(-50%);
+              width: 90%;
+              max-width: 400px;
+              background-color: #232323;
+              border-radius: 20px;
+              padding: 30px 20px;
+              gap: 25px;
+              box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+              z-index: 998;
+              opacity: 0;
+              transform: translate(-50%, -20px);
+              pointer-events: none;
+              transition: all 0.4s ease;
+          }
+
+          .nav-links.active {
+              opacity: 1;
+              transform: translate(-50%, 0);
+              pointer-events: auto;
+          }
+
+          .nav-links li {
+              opacity: 0;
+              transform: translateY(20px);
+              transition: opacity 0.4s ease, transform 0.4s ease;
+          }
+
+          .nav-links.active li {
+              opacity: 1;
+              transform: translateY(0);
+          }
+
+          .nav-links.active li:nth-child(1) {
+              transition-delay: 0.1s;
+          }
+
+          .nav-links.active li:nth-child(2) {
+              transition-delay: 0.2s;
+          }
+
+          .nav-links.active li:nth-child(3) {
+              transition-delay: 0.3s;
+          }
+
+          .nav-links.active li:nth-child(4) {
+              transition-delay: 0.4s;
+          }
+
+          .nav-links.active li:nth-child(5) {
+              transition-delay: 0.5s;
+          }
+
+          .burger-menu {
+              display: flex;
+          }
+
+          .get-in-touch-btn {
+              display: none;
+          }
+
+          .section-1-header .page-title {
+              font-size: 40px;
+          }
+
+          .section-1-header .breadcrumb {
+              font-size: 16px;
+          }
+      }
+
+      @media (max-width: 480px) {
+          .nav-container {
+              padding: 8px 15px;
+          }
+
+          .logo img {
+              height: 35px;
+          }
+
+          .nav-links {
+              top: 70px;
+              padding: 20px;
+          }
+
+          .nav-links li a {
+              font-size: 14px;
+          }
+
+          .section-1-header .page-title {
+              font-size: 30px;
+          }
+
+          .section-1-header .breadcrumb {
+              font-size: 14px;
+          }
+
+          .service-box {
+              padding: 20px;
+          }
+
+          .service-box .box-title {
+              font-size: 20px;
+          }
+      }
+
+      /* Hero Section */
+      .section-1-header {
+        text-align: center;
+        padding: 50px 20px 0px 20px;
+      }
+
+      .section-1-header .page-title {
+        color: #fff;
+        font-weight: 600;
+        font-size: 50px;
+        margin-bottom: 20px;
+      }
+
+      .section-1-header .breadcrumb {
+        color: #fff;
+        font-weight: 600;
+        font-size: 18px;
+      }
+
+      .section-1-header .breadcrumb a {
+        color: #fff;
+      }
+
+      .section-1-header img {
+        width: 70%;
+        max-width: 800px;
+        margin-top: 40px;
+      }
+
+
+     
+      /* about main  */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 50px 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .section-label {
+        color: #1cbbb6;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+      }
+
+      /* --- About Section Styles --- */
+      .about-content {
+        width: 100%;
+        max-width: 500px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .about-content h1 {
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      .about-content .highlight {
+        color: #1cbbb6;
+      }
+
+
+      .feature-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .feature-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .feature-item svg {
+        width: 16px;
+        height: 16px;
+        min-width: 16px;
+        color: #1cbbb6;
+      }
+
+      .description-text {
+        color: #555;
+        font-size: 15px;
+      }
+
+      .read-more-btn {
+        background-color: #1cbbb6;
+        border: none;
+        border-radius: 50px;
+        padding: 12px 25px;
+        font-weight: 600;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: fit-content;
+        margin-top: 10px;
+      }
+
+      .read-more-btn a {
+        color: white;
+        text-decoration: none;
+      }
+
+      .read-more-btn svg {
+        height: 18px;
+        transition: transform 0.3s ease;
+        color: white;
+      }
+
+      .read-more-btn:hover {
+        background-color: #169e9a;
+        transform: translateY(-3px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .read-more-btn:hover svg {
+        transform: translateX(5px);
+      }
+
+      .about-image-container {
+        width: 100%;
+        max-width: 350px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .about-image {
+        width: 100%;
+        height: auto;
+      }
+
+      /* --- Vision & Mission Section Styles --- */
+      .vision-mission-text {
+        flex: 1 1 300px;
+      }
+
+      .vision-mission-text h1 {
+        font-size: 40px;
+        margin: 0;
+        line-height: 1.3;
+      }
+
+      .vision-mission-content {
+        flex: 1 1 300px;
+        text-align: center;
+      }
+
+      .vision-mission-images {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 22px;
+        margin-bottom: 20px;
+      }
+
+      .vision-mission-images img {
+        width: 100%;
+        max-width: 200px;
+        height: auto;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .vision-mission-content p {
+        padding: 0 25px;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #777;
+      }
+
+      .highlight {
+        color: #1cbbb6;
+
+      }
+
+      /* --- Responsive Design --- */
+      @media (max-width: 768px) {
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 50px 20px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            align-items: center;
-            justify-content: center;
+          flex-direction: column;
+          padding: 30px 15px;
         }
 
-        .section-label {
-            color: #1cbbb6;
-            font-size: 14px;
-            font-weight: 500;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
+        .about-content h1,
+        .vision-mission-text h1 {
+          font-size: 32px;
+          text-align: center;
         }
 
-        /* --- About Section Styles --- */
-        .about-content {
-            width: 100%;
-            max-width: 500px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+        .about-content,
+        .about-image-container,
+        .vision-mission-text {
+          max-width: 100%;
+          text-align: center;
+          flex: 1;
         }
-
-        .about-content h1 {
-            font-size: 40px;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .about-content .highlight {
-            color: #1cbbb6;
-        }
-       
 
         .feature-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
+          flex-direction: column;
+          gap: 10px;
+          align-items: center;
         }
 
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .feature-item svg {
-            width: 16px;
-            height: 16px;
-            min-width: 16px;
-            color: #1cbbb6;
-        }
-
-        .description-text {
-            color: #555;
-            font-size: 15px;
+        .about-content .description-text {
+          text-align: center;
         }
 
         .read-more-btn {
-            background-color: #1cbbb6;
-            border: none;
-            border-radius: 50px;
-            padding: 12px 25px;
-            font-weight: 600;
-            font-size: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: fit-content;
-            margin-top: 10px;
+          margin: 10px auto 0;
+        }
+      }
+
+
+      /* footer */
+      footer {
+        position: relative;
+        background-image: url('img/footer img.png');
+        background-size: cover;
+        background-position: center;
+        color: #fff;
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.876);
+        z-index: 0;
+      }
+
+      footer * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .footer-content {
+        padding: 60px 20px 20px;
+        text-align: center;
+        max-width: 1200px;
+        width: 100%;
+      }
+
+      .footer-content h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+      }
+
+      .footer-content p {
+        color: #7B7B7B;
+        font-size: 1rem;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      hr {
+        width: 80%;
+        max-width: 1200px;
+        margin: 30px auto;
+        border: 1px solid #7B7B7B;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 20px;
+        max-width: 1200px;
+        width: 100%;
+        gap: 20px;
+      }
+
+      .footer-links>div {
+        padding: 0 20px;
+        min-width: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-links>div:not(:last-child) {
+        border-right: 1px solid #7B7B7B;
+      }
+
+      .footer-logo img {
+        width: 100%;
+        max-width: 200px;
+        margin-top: 31px;
+        height: auto;
+        filter: contrast(0.6);
+      }
+
+      .footer-pages,
+      .footer-sevices,
+      .footer-contact {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        text-align: left;
+      }
+
+      .footer-pages a,
+      .footer-sevices a {
+        color: #7B7B7B;
+        text-decoration: none;
+        font-size: 0.9rem;
+      }
+
+      .footer-contact p {
+        color: #7B7B7B;
+        font-size: 0.9rem;
+      }
+
+      .footer-contact h3 {
+        margin-top: 10px;
+        font-size: 1rem;
+      }
+
+      .footer-copywrite {
+        border-top: 1px solid #7B7B7B;
+        margin-top: 30px;
+        padding: 20px;
+        font-size: 0.9rem;
+        color: #7B7B7B;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        max-width: 1200px;
+        width: 100%;
+      }
+
+      .footer-copywrite span {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+      }
+
+      @media (max-width: 992px) {
+        .footer-links {
+          flex-direction: column;
+          align-items: center;
         }
 
-        .read-more-btn a {
-            color: white;
-            text-decoration: none;
+        .footer-links>div {
+          border: none !important;
+          padding: 15px 0;
+          align-items: center;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .footer-content h1 {
+          font-size: 2rem;
         }
 
-        .read-more-btn svg {
-            height: 18px;
-            transition: transform 0.3s ease;
-            color: white;
+        .footer-links>div {
+          min-width: 150px;
+          align-items: center;
         }
 
-        .read-more-btn:hover {
-            background-color: #169e9a;
-            transform: translateY(-3px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        .footer-logo img {
+          max-width: 150px;
         }
 
-        .read-more-btn:hover svg {
-            transform: translateX(5px);
+        .footer-copywrite {
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .footer-content h1 {
+          font-size: 1.5rem;
         }
 
-        .about-image-container {
+        .footer-content p {
+          font-size: 0.9rem;
+        }
+
+        .footer-links>div {
+          min-width: 100%;
+          align-items: center;
+        }
+
+        .footer-contact p {
+          text-align: center;
+        }
+
+        .footer-logo img {
+          max-width: 120px;
+        }
+      }
+
+      /* why choose us  */
+
+      .main-container {
             width: 100%;
-            max-width: 350px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .about-image {
-            width: 100%;
-            height: auto;
-        }
-
-        /* --- Vision & Mission Section Styles --- */
-        .vision-mission-text {
-            flex: 1 1 300px;
-        }
-
-        .vision-mission-text h1 {
-            font-size: 40px;
-            margin: 0;
-            line-height: 1.3;
-        }
-
-        .vision-mission-content {
-            flex: 1 1 300px;
+            max-width: 1200px;
             text-align: center;
         }
 
-        .vision-mission-images {
+        .header {
+            margin-bottom: 60px;
+        }
+
+        .header-subtitle {
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            color: #2dd4bf;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .header-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1f2937;
+            line-height: 1.2;
+        }
+
+        .header-title .brand-highlight {
+            color: #2dd4bf;
+        }
+
+        .content-section {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center;
             justify-content: center;
-            gap: 22px;
-            margin-bottom: 20px;
+            gap: 20px;
         }
 
-        .vision-mission-images img {
-            width: 100%;
-            max-width: 200px;
-            height: auto;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        /* The container for the dynamic content boxes */
+        .content-box-container {
+            position: relative;
+            width: 410px;
+            height: 510px;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
 
-        .vision-mission-content p {
-            padding: 0 25px;
-            font-size: 16px;
+        .content-box {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .content-box-overlay {
+            position: absolute;
+            inset: 0;
+            background: #00000049;
+        }
+
+        .content-box-text {
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+            right: 40px;
+            color: white;
+            text-align: left;
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .content-box-number {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .content-box-description {
+            font-size: 1.125rem;
             line-height: 1.6;
-            color: #777;
-        }
-         .highlight {
-            color: #1cbbb6;
-
         }
 
-        /* --- Responsive Design --- */
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                padding: 30px 15px;
+        /* The CSS that controls which content box is visible */
+        /* It also makes the text visible with a transition */
+        #option-1:checked~.content-box-container .content-box:nth-child(1),
+        #option-2:checked~.content-box-container .content-box:nth-child(2),
+        #option-3:checked~.content-box-container .content-box:nth-child(3),
+        #option-4:checked~.content-box-container .content-box:nth-child(4),
+        #option-5:checked~.content-box-container .content-box:nth-child(5) {
+            opacity: 1;
+        }
+
+        #option-1:checked~.content-box-container .content-box:nth-child(1) .content-box-text,
+        #option-2:checked~.content-box-container .content-box:nth-child(2) .content-box-text,
+        #option-3:checked~.content-box-container .content-box:nth-child(3) .content-box-text,
+        #option-4:checked~.content-box-container .content-box:nth-child(4) .content-box-text,
+        #option-5:checked~.content-box-container .content-box:nth-child(5) .content-box-text {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* The navigation buttons container */
+        .navigation-row {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+            width: 100%;
+            gap: 15px;
+        }
+
+        /* Styles for the radio buttons and their labels */
+        .rotated-text {
+            writing-mode: vertical-lr;
+            transform: rotate(180deg);
+            white-space: nowrap;
+            cursor: pointer;
+            color: #7B7B7B;
+            font-weight: 500;
+            letter-spacing: 0.025em;
+            font-size: 1.25rem;
+            padding: 10px 15px;
+            transition: all 0.3s ease-in-out;
+            border-left: 2px solid transparent;
+            display: block;
+        }
+
+        /* Hide the actual radio buttons */
+        .radio-input {
+            display: none;
+        }
+
+        /* The CSS that controls which navigation button is active */
+        #option-1:checked~.navigation-row label[for="option-1"],
+        #option-2:checked~.navigation-row label[for="option-2"],
+        #option-3:checked~.navigation-row label[for="option-3"],
+        #option-4:checked~.navigation-row label[for="option-4"],
+        #option-5:checked~.navigation-row label[for="option-5"] {
+            color: #232323;
+            font-weight: 800;
+            border-left-color: #2dd4bf;
+        }
+
+        @media (min-width: 768px) {
+            .content-section {
+                flex-direction: row;
+                gap: 40px;
             }
 
-            .about-content h1,
-            .vision-mission-text h1 {
-                font-size: 32px;
-                text-align: center;
+            .content-box-container {
+                width: 410px;
+                height: 510px;
             }
 
-            .about-content,
-            .about-image-container,
-            .vision-mission-text {
-                max-width: 100%;
-                text-align: center;
+            .navigation-row {
+                width: 40%;
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: baseline;
             }
 
-            .feature-list {
-                flex-direction: column;
-                gap: 10px;
-                align-items: center;
-            }
+            .rotated-text {
+                text-align: left;
+                padding: 0 10px;
+                font-weight: 700;
 
-            .about-content .description-text {
-                text-align: center;
-            }
-
-            .read-more-btn {
-                margin: 10px auto 0;
             }
         }
-    </style>
-</head>
 
+</style>
 <body>
+
+     <section class="section-1">
+        <nav class="nav-bar">
+            <div class="nav-container">
+                <div class="logo"><a href="#"><img src="img/Aspirant logo White.webp" alt="Aspirant Logo"></a></div>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="About.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+                <a href="#" class="get-in-touch-btn">GET IN TOUCH</a>
+                <div class="burger-menu" onclick="toggleMenu(this)">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </nav>
+        <div class="section-1-header">
+            <h1 class="page-title">About</h1>
+            <h2 class="breadcrumb"><a href="index.html">Home</a><span class="Success"> /</span> <a
+                    href="About.html">About</a></h2>
+            <img src="img/About fram.png" alt="Services Hero Image">
+        </div>
+    </section>
+
+
     <!-- About Section -->
     <section class="about-section container">
         <div class="about-content">
@@ -249,7 +913,7 @@
             <button class="read-more-btn">
                 <a href="#">READ MORE</a>
                 <!-- Arrow Icon -->
-               <img src="img/getintouch img.png" alt="">
+                <img src="img/getintouch img.png" alt="">
             </button>
         </div>
         <div class="about-image-container">
@@ -276,6 +940,151 @@
             </p>
         </div>
     </section>
-</body>
 
+    <!-- why choose us  -->
+
+      <div class="main-container">
+
+        <!-- Header -->
+        <div class="header">
+            <p class="header-subtitle">--- WHY CHOOSE US ---</p>
+            <h1 class="header-title">
+                Your Vision Our Creation
+                <br>
+                <span class="brand-highlight">Elevate Your Brand</span>
+            </h1>
+        </div>
+
+        <!-- Content and Navigation Section -->
+        <div class="content-section">
+
+            <!-- Hidden radio buttons to control the active state -->
+            <input type="radio" name="content-tabs" id="option-1" class="radio-input" checked>
+            <input type="radio" name="content-tabs" id="option-2" class="radio-input">
+            <input type="radio" name="content-tabs" id="option-3" class="radio-input">
+            <input type="radio" name="content-tabs" id="option-4" class="radio-input">
+            <input type="radio" name="content-tabs" id="option-5" class="radio-input">
+
+            <!-- Left Side: Dynamic Content Box Container -->
+            <div class="content-box-container">
+                <div class="content-box" style="background-image: url('img/whychooseus.png');">
+                    <div class="content-box-overlay"></div>
+                    <div class="content-box-text">
+                        <h2 class="content-box-number">01.</h2>
+                        <p class="content-box-description">Transforming ideas into innovative, functional, and impactful
+                            digital solutions with precision and creativity. We bridge imagination and technology to
+                            build future-ready solutions.</p>
+                    </div>
+                </div>
+                <div class="content-box" style="background-image: url('img/whychooseus.png');">
+                    <div class="content-box-overlay"></div>
+                    <div class="content-box-text">
+                        <h2 class="content-box-number">02.</h2>
+                        <p class="content-box-description">We meticulously craft every pixel to ensure unparalleled
+                            quality and attention to detail. Our commitment to excellence guarantees a flawless user
+                            experience and stunning visual design.</p>
+                    </div>
+                </div>
+                <div class="content-box" style="background-image: url('img/whychooseus.png');">
+                    <div class="content-box-overlay"></div>
+                    <div class="content-box-text">
+                        <h2 class="content-box-number">03.</h2>
+                        <p class="content-box-description">Where your ideas take flight, we provide the wings. We
+                            empower your vision with strategic planning, creative ideation, and expert execution,
+                            turning concepts into reality.</p>
+                    </div>
+                </div>
+                <div class="content-box" style="background-image: url('img/whychooseus.png');">
+                    <div class="content-box-overlay"></div>
+                    <div class="content-box-text">
+                        <h2 class="content-box-number">04.</h2>
+                        <p class="content-box-description">Our solutions are not just good, they are pixel-perfect. We
+                            ensure every element aligns with your brand identity and resonates with your audience,
+                            creating a cohesive and memorable experience.</p>
+                    </div>
+                </div>
+                <div class="content-box" style="background-image: url('img/whychooseus.png');">
+                    <div class="content-box-overlay"></div>
+                    <div class="content-box-text">
+                        <h2 class="content-box-number">05.</h2>
+                        <p class="content-box-description">We believe in a cycle of inspiration, creation, and
+                            repetition. We continuously innovate and refine our work, building on success and pushing
+                            the boundaries of what's possible.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Navigation Buttons (now labels for the radio buttons) -->
+            <div class="navigation-row">
+                <label for="option-1" class="rotated-text">01. Designing into Reality</label>
+                <label for="option-2" class="rotated-text">02. Excellence Every Pixel</label>
+                <label for="option-3" class="rotated-text">03. Where Ideas Flight</label>
+                <label for="option-4" class="rotated-text">04. Pixel Perfect Solutions</label>
+                <label for="option-5" class="rotated-text">05. Inspire Create Repeat</label>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- foter -->
+    <footer>
+        <div class="footer-content">
+            <h1>Newsletter</h1>
+            <p>
+                A creative agency specializing in innovative solutions to <br>
+                empower businesses and enhance brand experiences
+            </p>
+        </div>
+
+        <hr />
+
+        <div class="footer-links">
+            <div class="footer-logo">
+                <img src="img/Aspirant logo White.webp" alt="Logo" />
+            </div>
+
+            <div class="footer-pages">
+                <h3>Pages</h3>
+                <a href="#">About Us</a>
+                <a href="#">Services</a>
+                <a href="#">Why Choose Us</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Blog & News</a>
+            </div>
+
+            <div class="footer-sevices">
+                <h3>Services</h3>
+                <a href="#">Digital Transformation</a>
+                <a href="#">Product Engineering</a>
+                <a href="#">Application Development</a>
+                <a href="#">Big Data & Analytics</a>
+                <a href="#">Web Development</a>
+            </div>
+
+            <div class="footer-contact">
+                <h3>Address</h3>
+                <p>Metro Station, A Wing 302, Northern Supremous, Northern Hills,<br>Shyam Narayan Dubey Rd, Dahisar
+                    East,
+                    Mumbai 400068</p>
+                <h3>Phone Number</h3>
+                <p>+91 79773 50351</p>
+                <h3>Email</h3>
+                <p>aspirantsolutions@gmail.com</p>
+            </div>
+        </div>
+
+        <div class="footer-copywrite">
+            <p>© Aspirant Solutions 2025 | All Rights Reserved</p>
+            <span>
+                <p>Terms & Conditions</p>
+                <p>Privacy Policy</p>
+                <p>Contact Us</p>
+            </span>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    
+</body>
 </html>
