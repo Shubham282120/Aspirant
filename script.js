@@ -1,3 +1,6 @@
+
+
+
 //   slider  
 let currentIndex = 0;
 function nextSlide() {
