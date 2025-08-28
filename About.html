@@ -2,254 +2,430 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Karla:ital,wght@0,200..800;1,200..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Outfit:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="About.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Karla:ital,wght@0,200..800;1,200..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Outfit:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="icon" href="img/fav icon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css"
+    integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css"
+    integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="css/About.css">
+  <link rel="stylesheet" href="css/common.css">
 </head>
 
 <body>
-    <section class="section-1">
-        <nav class="nav-bar">
-            <div class="nav-container">
-                <div class="logo"><a href="#"><img src="img/Aspirant logo White.webp" alt="Aspirant Logo"></a></div>
-                <ul class="nav-links" id="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="About.html">About</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="#blog">Blog</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
-                </ul>
-                <a href="#" class="get-in-touch-btn">GET IN TOUCH</a>
-                <div class="burger-menu" onclick="toggleMenu(this)">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-            </div>
-        </nav>
-        <div class="section-1-header">
-            <h1 class="page-title">About</h1>
-            <h2 class="breadcrumb"><a href="index.html">Home</a><span class="Success"> /</span> <a
-                    href="About.html">About</a></h2>
-            <img src="img/About fram.png" alt="Services Hero Image">
+  <div class="preloader-container">
+    <!-- Wind effect -->
+    <div class="wind-container">
+      <div class="wind-line"></div>
+      <div class="wind-line"></div>
+      <div class="wind-line"></div>
+      <div class="wind-line"></div>
+    </div>
+
+    <!-- Flying Plane -->
+    <div class="fly-wrapper">
+      <div class="glow-circle"></div>
+      <img src="img/fav icon.png" class="plane" alt="Plane" />
+      <div class="plane-name">Aspirant</div>
+      <div class="shadow"></div>
+    </div>
+  </div>
+
+  <section class="section-1">
+    <nav class="nav-bar">
+      <div class="nav-container">
+        <div class="logo"><a href="#"><img src="img/Aspirant logo White.webp" alt="Aspirant Logo"></a></div>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="About.html" style="color: aqua;">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="/#section-5">Blog</a></li>
+          <li><a href="/#section-10-main">Contact Us</a></li>
+        </ul>
+        <button class="get-in-touch"><a href="#">GET IN TOUCH <img src="img/getintouch img.png" alt="">
+          </a></button>
+        <div class="burger-menu" onclick="toggleMenu(this)">
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
+      </div>
+    </nav>
+    <div class="section-1-header">
+      <h1 class="page-title">About</h1>
+      <h2 class="breadcrumb"><a href="index.html">Home</a><span class="Success"> /</span> <a href="About.html"
+          style="color: aqua;">About</a></h2>
+      <img src="img/About fram.png" alt="Services Hero Image">
+    </div>
+  </section>
+
+
+  <!-- About Section -->
+  <section class="about-company-section">
+    <div class="about-company">
+      <p class="section-label">------ ABOUT COMPANY </p>
+      <h1>Crafting Brands<br>The <span>Futures</span></h1>
+      <div class="feature-list">
+        <div class="feature-cont1">
+          <div class="feature-item">
+            <i class="fas fa-check-circle"></i>
+            <p class="text-sm">Drive More Traffic, Convert</p>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle"></i>
+            <p class="text-sm">Increase Visibility</p>
+          </div>
+        </div>
+        <div class="feature-cont2">
+          <div class="feature-item">
+            <i class="fas fa-check-circle"></i>
+            <p class="text-sm">More Customers</p>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-check-circle"></i>
+            <p class="text-sm">Digital Marketing Solution</p>
+          </div>
+        </div>
+      </div>
+      <p class="about-content">A creative agency specializing in providing innovative and<br>unique solutions to
+        businesses to build.</p>
+      <button class="read-more-btn">
+        <a href="#">READ MORE</a>
+        <!-- Arrow Icon -->
+        <img src="img/getintouch img.png" alt="">
+      </button>
+    </div>
+    <div class="about-company-right">
+      <img src="img/about-main-img.png" alt="About Company">
+    </div>
+  </section>
+
+  <!-- Vision & Mission Section -->
+  <div class="vission-mission-container">
+    <section class="vission-mission">
+      <div class="vission-mission-sec1">
+        <p class="section-label">--- Vision & Mission</p>
+        <h1>
+          Driving Innovation,<br> Empowering Future<br /><span>Technologies</span>
+        </h1>
+        <img src="img/vision about.png" alt="Abstract image representing vision">
+      </div>
+      <div class="vission-mission-sec2">
+        <img src="img/vishion-about-2.png" alt="Abstract image representing mission">
+        <p>Leading the future with innovative IT solutions, transforming <br> businesses with cutting-edge
+          technology. We
+          empower growth <br>through secure, scalable, and customer-centric digital <br> solutions.</p>
+      </div>
     </section>
+  </div>
+  <!-- why choose us  -->
 
+  <section class="why-choose-us">
+    <div class="main-container">
 
-    <!-- About Section -->
-    <section class="about-section container">
-        <div class="about-content">
-            <p class="section-label">--- ABOUT COMPANY</p>
-            <h1>
-                Crafting Brands The <span class="highlight">Futures</span>
-            </h1>
-            <div class="feature-list">
-                <div class="feature-item">
-                    <!-- Tick Icon -->
-                    <img src="img/tick.png" alt="">
-                    <p class="text-sm">Drive More Traffic, Convert</p>
-                </div>
-                <div class="feature-item">
-                    <img src="img/tick.png" alt="">
-                    <p class="text-sm">More Customers</p>
-                </div>
-                <div class="feature-item">
-                    <img src="img/tick.png" alt="">
-                    <p class="text-sm">Increase Visibility</p>
-                </div>
-                <div class="feature-item">
-                    <img src="img/tick.png" alt="">
-                    <p class="text-sm">Digital Marketing Solution</p>
-                </div>
+      <div class="header">
+        <p class="header-subtitle">--- WHY CHOOSE US ---</p>
+        <h1 class="header-title">
+          Your Vision Our Creation
+          <br>
+          <span class="brand-highlight">Elevate Your Brand</span>
+        </h1>
+      </div>
+
+      <div class="content-section">
+
+        <input type="radio" name="content-tabs" id="option-1" class="radio-input" checked>
+        <input type="radio" name="content-tabs" id="option-2" class="radio-input">
+        <input type="radio" name="content-tabs" id="option-3" class="radio-input">
+        <input type="radio" name="content-tabs" id="option-4" class="radio-input">
+        <input type="radio" name="content-tabs" id="option-5" class="radio-input">
+
+        <div class="content-box-container">
+          <div class="content-box" style="background-image: url('img/whychooseus.png');">
+            <div class="content-box-overlay"></div>
+            <div class="content-box-text">
+              <h2 class="content-box-number">01.</h2>
+              <p class="content-box-description">Transforming ideas into innovative, functional, and
+                impactful digital solutions with precision and creativity. We bridge imagination and
+                technology to build future-ready solutions.</p>
             </div>
-            <p class="description-text">
-                A creative agency specializing in providing innovative and unique solutions to businesses to build and
-                enhance their brand experiences.
-            </p>
-            <button class="read-more-btn">
-                <a href="#">READ MORE</a>
-                <!-- Arrow Icon -->
-                <img src="img/getintouch img.png" alt="">
-            </button>
-        </div>
-        <div class="about-image-container">
-            <img src="img/about-main-img.png" alt="Company Image" class="about-image">
-        </div>
-    </section>
-
-    <!-- Vision & Mission Section -->
-    <section class="vision-mission-section container">
-        <div class="vision-mission-text">
-            <p class="section-label">--- Vision & Mission</p>
-            <h1>
-                Driving Innovation, Empowering Future<br /><span class="highlight">Technologies</span>
-            </h1>
-        </div>
-        <div class="vision-mission-content">
-            <div class="vision-mission-images">
-                <img src="img/vision about.png" alt="Vision concept" />
-                <img src="img/vishion-about-2.png" alt="Mission icon" />
+          </div>
+          <div class="content-box" style="background-image: url('img/whychooseus.png');">
+            <div class="content-box-overlay"></div>
+            <div class="content-box-text">
+              <h2 class="content-box-number">02.</h2>
+              <p class="content-box-description">We meticulously craft every pixel to ensure unparalleled
+                quality and attention to detail. Our commitment to excellence guarantees a flawless user
+                experience and stunning visual design.</p>
             </div>
-            <p>
-                Leading the future with innovative IT solutions, transforming businesses with cutting-edge technology.
-                We empower growth through secure, scalable, and customer-centric digital solutions.
-            </p>
+          </div>
+          <div class="content-box" style="background-image: url('img/whychooseus.png');">
+            <div class="content-box-overlay"></div>
+            <div class="content-box-text">
+              <h2 class="content-box-number">03.</h2>
+              <p class="content-box-description">Where your ideas take flight, we provide the wings. We
+                empower your vision with strategic planning, creative ideation, and expert execution,
+                turning concepts into reality.</p>
+            </div>
+          </div>
+          <div class="content-box" style="background-image: url('img/whychooseus.png');">
+            <div class="content-box-overlay"></div>
+            <div class="content-box-text">
+              <h2 class="content-box-number">04.</h2>
+              <p class="content-box-description">Our solutions are not just good, they are pixel-perfect.
+                We ensure every element aligns with your brand identity and resonates with your
+                audience, creating a cohesive and memorable experience.</p>
+            </div>
+          </div>
+          <div class="content-box" style="background-image: url('img/whychooseus.png');">
+            <div class="content-box-overlay"></div>
+            <div class="content-box-text">
+              <h2 class="content-box-number">05.</h2>
+              <p class="content-box-description">We believe in a cycle of inspiration, creation, and
+                repetition. We continuously innovate and refine our work, building on success and
+                pushing the boundaries of what's possible.</p>
+            </div>
+          </div>
         </div>
-    </section>
 
-    <!-- why choose us  -->
+        <div class="navigation-row">
+          <label for="option-1" class="rotated-text">01. Designing into Reality</label>
+          <label for="option-2" class="rotated-text">02. Excellence Every Pixel</label>
+          <label for="option-3" class="rotated-text">03. Where Ideas Flight</label>
+          <label for="option-4" class="rotated-text">04. Pixel Perfect Solutions</label>
+          <label for="option-5" class="rotated-text">05. Inspire Create Repeat</label>
+        </div>
 
-    <section class="why-choose-us">
-        <div class="main-container">
+      </div>
+    </div>
+  </section>
+  <!-- Client Testimonial Section  -->
 
-            <!-- Header -->
-            <div class="header">
-                <p class="header-subtitle">--- WHY CHOOSE US ---</p>
-                <h1 class="header-title">
-                    Your Vision Our Creation
-                    <br>
-                    <span class="brand-highlight">Elevate Your Brand</span>
+  <section class="Client-Testimonial">
+    <div class="testimonial-section">
+      <div class="testimonial-heading">
+        <p>------ Client Testimonial ------</p>
+        <h1>
+          Excellence in Every <br>
+          Where <span class="highlight">Ideas</span>
+        </h1>
+        <h3>
+          A creative agency specializing in providing innovative and unique <br>
+          solutions to help businesses build and grow
+        </h3>
+        <div class="testimonial-btn">
+          <div class="testimonial-btn-pre">
+            <img src="img/getintouch2img.png" alt="">
+          </div>
+          <div class="testimonial-btn-next">
+            <img src="img/getintouch2img.png" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="swiper-container">
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div>
+                <h1>
+                  Rajeev Shukla
                 </h1>
-            </div>
-
-            <!-- Content and Navigation Section -->
-            <div class="content-section">
-
-                <!-- Hidden radio buttons to control the active state -->
-                <input type="radio" name="content-tabs" id="option-1" class="radio-input" checked>
-                <input type="radio" name="content-tabs" id="option-2" class="radio-input">
-                <input type="radio" name="content-tabs" id="option-3" class="radio-input">
-                <input type="radio" name="content-tabs" id="option-4" class="radio-input">
-                <input type="radio" name="content-tabs" id="option-5" class="radio-input">
-
-                <!-- Left Side: Dynamic Content Box Container -->
-                <div class="content-box-container">
-                    <div class="content-box" style="background-image: url('img/whychooseus.png');">
-                        <div class="content-box-overlay"></div>
-                        <div class="content-box-text">
-                            <h2 class="content-box-number">01.</h2>
-                            <p class="content-box-description">Transforming ideas into innovative, functional, and
-                                impactful
-                                digital solutions with precision and creativity. We bridge imagination and technology to
-                                build future-ready solutions.</p>
-                        </div>
-                    </div>
-                    <div class="content-box" style="background-image: url('img/whychooseus.png');">
-                        <div class="content-box-overlay"></div>
-                        <div class="content-box-text">
-                            <h2 class="content-box-number">02.</h2>
-                            <p class="content-box-description">We meticulously craft every pixel to ensure unparalleled
-                                quality and attention to detail. Our commitment to excellence guarantees a flawless user
-                                experience and stunning visual design.</p>
-                        </div>
-                    </div>
-                    <div class="content-box" style="background-image: url('img/whychooseus.png');">
-                        <div class="content-box-overlay"></div>
-                        <div class="content-box-text">
-                            <h2 class="content-box-number">03.</h2>
-                            <p class="content-box-description">Where your ideas take flight, we provide the wings. We
-                                empower your vision with strategic planning, creative ideation, and expert execution,
-                                turning concepts into reality.</p>
-                        </div>
-                    </div>
-                    <div class="content-box" style="background-image: url('img/whychooseus.png');">
-                        <div class="content-box-overlay"></div>
-                        <div class="content-box-text">
-                            <h2 class="content-box-number">04.</h2>
-                            <p class="content-box-description">Our solutions are not just good, they are pixel-perfect.
-                                We
-                                ensure every element aligns with your brand identity and resonates with your audience,
-                                creating a cohesive and memorable experience.</p>
-                        </div>
-                    </div>
-                    <div class="content-box" style="background-image: url('img/whychooseus.png');">
-                        <div class="content-box-overlay"></div>
-                        <div class="content-box-text">
-                            <h2 class="content-box-number">05.</h2>
-                            <p class="content-box-description">We believe in a cycle of inspiration, creation, and
-                                repetition. We continuously innovate and refine our work, building on success and
-                                pushing
-                                the boundaries of what's possible.</p>
-                        </div>
-                    </div>
+                <p>A creative agency providing an innovative and unique solutions to businesses build their brand A
+                  creative agency </p>
+                <div class="quote-icon">
+                  <div>
+                    <img src="img/quort.png" alt="">
+                  </div>
+                  <div>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                  </div>
                 </div>
-
-                <!-- Right Side: Navigation Buttons (now labels for the radio buttons) -->
-                <div class="navigation-row">
-                    <label for="option-1" class="rotated-text">01. Designing into Reality</label>
-                    <label for="option-2" class="rotated-text">02. Excellence Every Pixel</label>
-                    <label for="option-3" class="rotated-text">03. Where Ideas Flight</label>
-                    <label for="option-4" class="rotated-text">04. Pixel Perfect Solutions</label>
-                    <label for="option-5" class="rotated-text">05. Inspire Create Repeat</label>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div>
+                <h1>
+                  Ranchoad Das
+                </h1>
+                <p>A creative agency providing an innovative and unique solutions to businesses build their brand A
+                  creative agency </p>
+                <div class="quote-icon">
+                  <div>
+                    <img src="img/quort.png" alt="">
+                  </div>
+                  <div>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                  </div>
                 </div>
-
+              </div>
             </div>
+            <div class="swiper-slide">
+              <div>
+                <h1>
+                  Kriti Panchal
+                </h1>
+                <p>A creative agency providing an innovative and unique solutions to businesses build their brand A
+                  creative agency </p>
+                <div class="quote-icon">
+                  <div>
+                    <img src="img/quort.png" alt="">
+                  </div>
+                  <div>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div>
+                <div style="padding-bottom: 10px;">
+                  <h1>
+                    Kanchan Vohra
+                  </h1>
+                  <h5 style="font-weight: 600;">LexAuras Legal Services</h5>
+                  <h5 style="font-weight: 600;">Founder and Chief Legal Advisor
+                  </h5>
+                </div>
+                <p>I hired Aspirant Solutions for my website development, and with Dheeraj and Sandhya leading the
+                  way, the entire process was effortless. Their dedication, creativity, and attention to detail were
+                  outstanding. They turned my ideas into a beautiful, user-friendly, and professional
+                  website—delivered exactly on time.</p>
+                <div class="quote-icon">
+                  <div>
+                    <img src="img/quort.png" alt="">
+                  </div>
+                  <div>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div>
+                <h1>
+                  Captain America
+                </h1>
+                <p>A creative agency providing an innovative and unique solutions to businesses build their brand A
+                  creative agency </p>
+                <div class="quote-icon">
+                  <div>
+                    <img src="img/quort.png" alt="">
+                  </div>
+                  <div>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
+  <!-- foter -->
+  <footer>
+    <div class="footer-content">
+      <h1>Newsletter</h1>
+      <p>
+        A creative agency specializing in innovative solutions to <br>
+        empower businesses and enhance brand experiences
+      </p>
+    </div>
 
-    <!-- foter -->
-    <footer>
-        <div class="footer-content">
-            <h1>Newsletter</h1>
-            <p>
-                A creative agency specializing in innovative solutions to <br>
-                empower businesses and enhance brand experiences
-            </p>
-        </div>
+    <hr />
 
-        <hr />
+    <div class="footer-links">
+      <div class="footer-logo">
+        <img src="img/Aspirant logo White.webp" alt="Logo" />
+      </div>
 
-        <div class="footer-links">
-            <div class="footer-logo">
-                <img src="img/Aspirant logo White.webp" alt="Logo" />
-            </div>
+      <div class="footer-pages">
+        <h3>Pages</h3>
+        <a href="#">About Us</a>
+        <a href="#">Services</a>
+        <a href="#">Why Choose Us</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Blog & News</a>
+      </div>
 
-            <div class="footer-pages">
-                <h3>Pages</h3>
-                <a href="#">About Us</a>
-                <a href="#">Services</a>
-                <a href="#">Why Choose Us</a>
-                <a href="#">Contact Us</a>
-                <a href="#">Blog & News</a>
-            </div>
+      <div class="footer-sevices">
+        <h3>Services</h3>
+        <a href="#">Digital Transformation</a>
+        <a href="#">Product Engineering</a>
+        <a href="#">Application Development</a>
+        <a href="#">Big Data & Analytics</a>
+        <a href="#">Web Development</a>
+      </div>
 
-            <div class="footer-sevices">
-                <h3>Services</h3>
-                <a href="#">Digital Transformation</a>
-                <a href="#">Product Engineering</a>
-                <a href="#">Application Development</a>
-                <a href="#">Big Data & Analytics</a>
-                <a href="#">Web Development</a>
-            </div>
+      <div class="footer-contact">
+        <h3>Address</h3>
+        <p>Metro Station, A Wing 302, Northern Supremous, Northern Hills,<br>Shyam Narayan Dubey Rd, Dahisar
+          East,
+          Mumbai 400068</p>
+        <h3>Phone Number</h3>
+        <p>+91 79773 50351</p>
+        <h3>Email</h3>
+        <p>aspirantsolutions@gmail.com</p>
+      </div>
+    </div>
 
-            <div class="footer-contact">
-                <h3>Address</h3>
-                <p>Metro Station, A Wing 302, Northern Supremous, Northern Hills,<br>Shyam Narayan Dubey Rd, Dahisar
-                    East,
-                    Mumbai 400068</p>
-                <h3>Phone Number</h3>
-                <p>+91 79773 50351</p>
-                <h3>Email</h3>
-                <p>aspirantsolutions@gmail.com</p>
-            </div>
-        </div>
+    <div class="footer-copywrite">
+      <p>© Aspirant Solutions 2025 | All Rights Reserved</p>
+      <span>
+        <p>Terms & Conditions</p>
+        <p>Privacy Policy</p>
+        <p>Contact Us</p>
+      </span>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"
+    integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-        <div class="footer-copywrite">
-            <p>© Aspirant Solutions 2025 | All Rights Reserved</p>
-            <span>
-                <p>Terms & Conditions</p>
-                <p>Privacy Policy</p>
-                <p>Contact Us</p>
-            </span>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+  <script src="./js/script.js"></script>
 </body>
 
 </html>
